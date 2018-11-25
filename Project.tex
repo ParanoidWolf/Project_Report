@@ -1,0 +1,300 @@
+%----------------------------
+% Prepared in Share-latex  
+%----------------------------
+\documentclass{report}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{marginnote}
+\settowidth{\mylen}{\cftfigaftersnum\cftfigpresnum}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{chngcntr}
+\usepackage[caption = false]{subfig}
+\usepackage[subfigure]{tocloft}
+\newlength{\mylen}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage[table]{xcolor}
+\usepackage[intoc]{nomencl}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Underwater Image Enhancement}
+\lhead{\textit{Govt. Model Engineering College}}
+\rfoot{\thepage}
+\lfoot{\textit{Department of Electronics}}
+
+
+\pagenumbering{roman}
+
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{mathpazo} % Palatino font
+
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{Back.jpg}%
+\vfill
+}}}
+
+\begin{document}
+
+\AddToShipoutPicture*{\BackgroundPic}
+\ClearShipoutPicture
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+\center % Centre everything on the page
+	
+	%------------------------------------------------
+	%	Headings
+	%------------------------------------------------
+{\huge\bfseries Underwater Image Enhancement}\\[0.4cm] % Title of your document
+\textsc{\huge Project Report}\\[0.4cm] % Major heading such as course name	
+\large Submitted in partial fulfillment for the award of the degree\\[0.1cm] \large of\\[0.2cm]
+\textbf{\LARGE BACHELOR OF TECHNOLOGY}\\[0.1cm]
+\textbf{\large IN}\\[0.1cm]
+\textbf{\LARGE ELECTORNICS AND COMMUNICATION\\[0.2cm] ENGINEERING}\\[0.4cm]
+\textsc{Submitted by}\\[0.1in]
+	
+\Large\centering{Amrutha Balachandran \\[0.2cm]
+Anagha A Krishna \\[0.2cm]
+Krishnendu E \\[0.2cm]
+P H Aju}\\
+\includegraphics[height=5cm,width=5cm]{MEC_logo.png}\\
+	
+\textsc{\Large Department of Electronics and Communication Engineering}\\[0.1cm] % Minor heading such as course title
+\textsc{\Large Govt. Model Engineering College}\\[0.1cm] % Main heading such as the name of your university/college
+\textsc{\Large Thrikkakara, Cochin - 682 021}\\[0.1cm] % Main heading such as the name of your university/college
+\textsc{\Large APJ Abdul Kalam Technological University}\\ % Main heading such as the name of your university/college
+\textsc{\Large November 2018} % Main heading such as the name of your university/college
+
+\end{titlepage}
+
+    \thispagestyle{empty}
+    \begin{center}
+    \centering\huge\ \textbf{Bonafide certificate}\\ [0.3in]
+    \includegraphics[width=0.3\textwidth]{MEC_logo}\\[0.25in]
+	{
+        \large MODEL ENGINEERING COLLEGE\\[0.1in]
+		THRIKKAKARA, KOCHI-21\\[0.1in]
+        \large DEPARTMENT OF ELECTRONICS AND COMMUNICATION}\\[0.1in]
+		\large\textsc{APJ Abdul Kalam Technological University}\\[0.1in]
+	
+	  \large This is to certify that the Project Report entitled\\[0.1in]
+	{ Submitted by}\\[0.1in]
+	
+	    \centering{Amrutha Balachandran \\
+	    Anagha A Krishna \\
+	    Krishnendu E \\
+	    P H Aju}\\[0.1in]
+	  \large{is a bonafide account of  their work done under our supervision}\\
+	\end{center}
+
+\vspace{2cm}
+\begin{minipage}[t]{10cm}
+\flushleft \textbf{Project Co-ordinator}\\
+\large{Dr. Binesh T}\\
+Associate Professor\\
+Dept. of Electronics and\\
+Communication Engineering
+\end{minipage}
+\vspace{2cm}
+\begin{minipage}[t]{6cm}
+\flushleft \textbf{Head of Department}\\
+\large{Dr. Vinu Thomas}\\
+Professor\\
+Dept. of Electronics and\\
+Communication Engineering
+\end{minipage}
+%\begin{minipage}[t]{5cm}
+%\flushleft Head of Department\\
+%Mr. Pradeep M\\
+%Associate Professor\\
+%\end{minipage}
+\justifying
+
+	\newpage
+	  \pagenumbering{roman}
+	    \addcontentsline{toc}{chapter}{Acknowledgment}
+	    \chapter*{\centering Acknowledgment}
+	    \vspace{1mm}
+	    \setcounter{page}{1}	 
+	    \paragraph{} \hspace{1mm}To the grace and generous of God Almighty, we attribute the successful completion of our Project. It is our duty to respectfully offer our sincere gratitude to all the people who have kindly offer their valuable support, guidance and support. We express our sincere gratitude to \textbf{Prof. Dr. V P Devassia, Principal, Govt. Model Engineering College} for opening up a plethora of possibilities and resources for our use.
+	    \paragraph{}\hspace{1mm}Next we express our heartfelt thanks to \textbf{Dr. Vinu Thomas, Head of Department of Electronics Engineering, Govt. Model Engineering College}. He has offered infallible support and timely advice and was pivotal in the completion of this Project. We extend sincere thanks to our Project coordinator and Guide, \textbf{Dr.Binesh T , Assistant Professor, Department of Electronics Engineering} for allowing us to use the facilities available and for providing us with right guidance and advice at the crucial junctures and for showing us the right way. 
+	    \paragraph{}\hspace{1mm}We also extend our sincere gratitude to our classmates and other teachers who were ready with a positive comment all the time.
+
+	  \chapter*{\centering Abstract}
+	  \doublespacing{
+		\large{
+		\textit{Underwater environment offers many rare attractions for photography. Underwater imaging has also been an important source of interest in different branches of technology and scientiﬁc research. But underwater images suffer from poor visibility resulting from the attenuation of the propagated light. Underwater image dehazing techniques are present but they require complex hardware to capture multiple data of underwater environment. However, these issues can be avoided by using Colour Balance and Fusion Technique’. This method is a single image approach that does not require specialized hardware or knowledge about the underwater conditions or scene structure. It builds on the blending of two images that are directly derived from a color compensated and white-balanced version of the original degraded image. The two images to fusion, as well as their associated weight maps, are deﬁned to promote the transfer of edges and color contrast to the output image. To avoid that the sharp weight map transitions create artifacts in the low frequency components of the reconstructed image, a multiscale fusion strategy is adopted. Extensive qualitative and quantitative evaluation reveals that the enhanced images and videos are characterized by better exposedness of the dark regions, improved global contrast, and edges sharpness. This algorithm is reasonably independent of the camera settings, and improves the accuracy of several image processing applications, such as image segmentation and key point matching}\\
+		\textbf{keyword}- Underwater Optical Model, Red Channel Equalization, Gray World, Multiscale Fusion, Gaussian Pyramid.
+        }
+        }
+	\addcontentsline{toc}{chapter}{Abstract}
+	\newpage
+    \Large \tableofcontents
+    \newpage
+	\large \listoffigures{}
+	 \addcontentsline{toc}{chapter}{List of Figures}
+	    
+
+	\newpage
+	  \chapter*{\Huge\textbf{List of Abbreviations}}
+	  \addcontentsline{toc}{chapter}{List of Abbreviations}
+	   
+	    \begin{Large}
+        \textbf{}  \hspace{42mm} \\\\
+        \textbf{}  \hspace{40mm} \\\\
+        \textbf{}  \hspace{39mm} \\\\
+		\textbf{}  \hspace{41.5mm} \\\\
+        
+        
+	    \end{Large}
+ 
+
+		\chapter{Introduction}
+		\pagenumbering{arabic}
+		\paragraph{} Underwater environment offers many rare attractions such as marine animals and ﬁshes, amazing landscape, and mysterious shipwrecks. Besides underwater photography, underwater imaging has also been an important source of interest in different branches of technology and scientiﬁc research, such as inspection of underwater infrastructures and cables, detection of manmade objects, control of underwater vehicles, marine biology research, and archaeology. Different from common images, underwater images suffer from poor visibility resulting from the attenuation of the propagated light, mainly due to absorption and scattering effects. The absorption substantially reduces the light energy, while the scattering causes changes in the light propagation direction. They result in foggy appearance and contrast degradation, making distant objects misty. Practically, in common sea water images, the objects at a distance of more than 10 meters are almost unperceivable, and the colors are faded because their composing wavelengths are cut according to the water depth. There have been several attempts to restore and enhance the visibility of such degraded images. Since the deterioration of underwater scenes results from the combination of multiplicative and additive processes, traditional enhancing techniques such as gamma correction, histogram equalization appear to be strongly limited for such a task. In earlier methods, the problem has been tackled by tailored acquisition strategies using multiple images, specialized hardware or polarization ﬁlters. Despite of their valuable achievements, these strategies suffer from a number of issues that reduce their practical applicability. This is a novel approach to remove the haze in underwater images based on a single image captured with a conventional camera. This approach builds on the fusion of multiple inputs, but derives the two inputs to combine by correcting the contrast and by sharpening a white-balanced version of a single native input image. The white balancing stage aims at removing the color cast induced by underwater light scattering, so as to produce a natural appearance of the sub-sea images. The multi-scale implementation of the fusion process results in an artifact-free blending.
+		
+		\paragraph{} Chapter 2 gives the literature survey of the project,  chapter 3  describes the basic block diagram of the product, chapter 4 deals with the hardware part of the project and chapter 5 deals with the software part, chapter 6 gives the conclusion.		
+		
+		
+		
+		\chapter{Literary Survey}
+			\paragraph{}
+		
+			
+			
+		\chapter {System Overview}
+		\paragraph{}The process of enhancing the underwater image can be explained by the below block diagram.
+		
+		\paragraph{}
+		 The block level representation of the project consists of 4 parts:
+		\\
+		1. White Balancing
+		\\
+		2. Sharpening 
+		\\
+		3. Gamma Correction
+		\\
+		4. Multiscale Fusion
+		
+		
+		\section{White Balancing}
+		\paragraph{}White-balancing is the process of removing the undesired color castings due to various illumination or medium attenuation properties. In underwater, the perception of color is highly correlated with the depth, and the main problem is the green-bluish appearance that needs to be resolved. As the light penetrates the water, the attenuation process affects selectively the wavelength spectrum, thus affecting the intensity and the appearance of a colored surface.
+		\paragraph{}Since the scattering attenuates more the long wavelengths than the short ones, the color perception is affected as we go down in deeper water. In practice, the attenuation and the loss of color also depends on the total distance between the observer and the scene. 
+		\paragraph{}Large spectrum of existing white balancing methods were considered, a number of solutions were identiﬁed that are both effective and suited to the problem. Some of them are as listed below,
+		1.	Gray world algorithm
+		2.	Max RGB
+		3.	Shades of grey
+		4.	Grey edge hypothesis
+		\paragraph{}The gray world algorithm was selected from the rest because it achieves good visual performance for reasonably distorted underwater scenes. However, a deeper investigation dealing with extremely deteriorated underwater scenes revealed that the other methods perform poorly. They fail to remove the color shift, and generally look bluish. Even though Gray world algorithm suffer from severe red artifacts which turns out to be a disadvantage. This is due to the very small mean value for the red channel, leading to an overcompensation of the red channel. Hence to nullify this effect what we do is use the green channel to compensate the red channel.
+
+		
+		\section{Sharpening}
+		\paragraph{}We use the unsharp masking principle to sharpen the white balanced image, simultaneously by using the same white balanced image to do gamma correction. Thus the white balanced image act as the input for sharpening and gamma correction.
+		\paragraph{}There are certain steps to do unsharp masking which are as follows:-
+		\paragraph{}1. Form the blurred image of input image (white balanced image). This is actually smoothening. It is done using Gaussian filter. The equation for a Gaussian filter for 2D image is as given below
+		\paragraph{}2. Subtract this from input image to obtain mask.
+		\paragraph{}Gmask(x,y) = F(x,y) – H(x,y)
+		\paragraph{}3. The output image (sharpened image) is given by the equation.
+		\paragraph{}
+
+		
+		\section{Gamma Correction}
+		\paragraph{}The white balanced image enters the gamma correction block as shown in block diagram parallel to the sharpening block. Gamma correction is done to brighten up the image. It is an exponential function dependent on the value of gamma (G) that decides towards which side the input image have to be shifted. For G<1 image shift to darker end and G>1 image shift to lighter end.
+		\paragraph{}The image as being corrected by a set of gamma values and the best value is taken into consideration.
+		
+		\section{Multiscale Fusion}
+		\paragraph{}The last block is the multiscale fusion. It has two parts. The first one is to take the 3 different weighted image of the sharpened as well as gamma corrected images. All 3 weighted images are added to get two different images corresponding to sharpening and gamma correction. Second is to use these combined images in laplacian pyramids along with Gaussian pyramid output of the white balanced images. These pyramids are combined to get the final output image.
+		
+		\chapter{Hardware Overview}
+		\paragraph{}The hardware part of the project mainly consists of 2 parts\\
+	    \begin{itemize}
+	        \item Image acquisition
+	        \item Image processing
+	        \item Image projection
+	    \end{itemize}
+		
+		
+		\section{Image acquisition}
+		\paragraph{} 
+		\section{Image processing}
+		\paragraph{} 
+		 
+	    \section{Image projection}
+		\paragraph{} The image projection part plays a role of projecting the object.The display area of the project consists of a screen (eg: an LCD PC monitor) which would be connected to the processing area using a VGA port.
+		
+		
+	\chapter{Software Description}
+		\paragraph{} The software section of the project is the part that accepts the image input from the camera and processes it in order for it to be of the form necessary for projection. It makes use of the following softwares. 
+		
+		\section{Open CV}
+		\paragraph{} 
+		
+	
+	   \section{Python} 
+		\paragraph{}
+		
+		
+        
+	    
+\chapter{System Implementation Results}
+		\paragraph{} 
+		
+		
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=8cm]{result3_corrected.jpg}
+			\caption{}
+		\end{figure}
+		
+
+		
+		
+\chapter{Conclusion}		
+
+
+
+		
+		
+		
+		
+		   
+	  \chapter*{References}
+		   \addcontentsline{toc}{chapter}{References}
+		  \begin{itemize}
+		 
+		  \item[\textbf{[1]}]Edward Buckley, “Holographic Laser Projection”,\textit{Journal of display technology}, vol no. 32, pp. 135- 140, June 2010
+		  \item[\textbf{[2]}] Chenliang Chang, “Holographic image projection”,\textit{Journal of display technology}, vol no. 15, pp. 107- 113, February 2014
+		  \item[\textbf{[3]}] Fatih Erden, “Hand Gesture Based Remote Control System”,\textit{IEEE Transactions on consumer Electronics}, vol no.3, pp. 675- 680, November 2014
+		  \item[\textbf{[4]}] High-Precision multi-view camera calibration using a rotating stage,\textit{IEEE International Conference on Image Processing}, August 2016
+		  \item[\textbf{[5]}] Joseph Howse, "OpenCV Computer Vision with python", \textit{Packet Publishing Ltd}, vol.3, pp. 567-569, 2013
+		  \item[\textbf{[6]}] Robert L. Boylestad and Louis Nashelsky, \textit{Electronic Devices and Circuit Theory}, 11th ed. Pearson, 2015
+		  \item[\textbf{[7]}] Robbietilton Reflective Prism [Online]. Available: \textit{http://www.\\ instructables.com/id/Reflective-Prism/}
+		  \item[\textbf{[8]}]Available:\textit{https://www.tutorialspoint.com/python/}
+		  \item[\textbf{[9]}] "Python 2.7.14 documentation", \textit{https://docs.python.org/2/index.html}
+		\end{itemize}
+		\end{document}
+
