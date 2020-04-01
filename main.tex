@@ -1,0 +1,2012 @@
+\documentclass[hidelinks, 12pt]{report}
+\usepackage{graphicx}
+\usepackage{marginnote}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage[document]{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{fancyhdr}
+\usepackage{float}
+%\usepackage{floatrow}
+\usepackage{caption}
+%\usepackage{calc}
+\usepackage{chngcntr}
+\usepackage[caption = false]{subfig}
+\usepackage[subfigure]{tocloft}
+\newlength{\mylen}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+%\usepackage{times}
+\usepackage[table]{xcolor}
+\usepackage[intoc]{nomencl}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage[titletoc]{appendix}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+%\usepackage{nomencl}
+%\let\abbrev\nomenclature
+%\makenomenclature 
+%\newcommand{\Abkuerzung}{
+%\printnomenclature
+%\newpage
+%}
+\usepackage{array}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=false,
+    linkcolor=blue,
+    filecolor=green,      
+    urlcolor=cyan,
+    citecolor=blue,
+}
+\urlstyle{same}
+\usepackage{bookmark}
+\renewcommand{\cftfigpresnum}{\figurename\enspace}
+\renewcommand{\cftfigaftersnum}{:}
+\settowidth{\mylen}{\cftfigaftersnum\cftfigpresnum}
+\addtolength{\cftfignumwidth}{\mylen}
+%\counterwithin{figure}{section}
+
+\renewcommand{\cfttabpresnum}{\tablename\enspace}
+\renewcommand{\cfttabaftersnum}{:}
+\settowidth{\mylen}{\cfttabaftersnum\cftfigpresnum}
+\addtolength{\cfttabnumwidth}{\mylen}
+\counterwithin{table}{section}
+
+\renewcommand{\labelenumi}{(\roman{enumi})}
+
+\geometry{margin=1in}
+
+
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+{\normalfont %
+    \Huge % %change this size to your needs for the first line
+    \bfseries}{\chaptertitlename\ \thechapter}{20pt}{%
+    \huge} %change this size to your needs for the second line
+ 
+
+
+\fancyhf{}
+\fancyhead[LE,LO]{\footnotesize{}}
+\fancyhead[RE,RO]{\footnotesize{Underwater Image Enhancement}}
+\fancyfoot[LE,LO]{\footnotesize{Govt. Model Engineering College}}
+\fancyfoot[RE,RO]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+%\renewcommand{\familydefault}{\rmdefault}
+\newcommand{\Rnum}[1]{\uppercase\expandafter{\romannumeral#1}}
+\newcommand{\rnum}[1]{\romannumeral#1\relax}
+%\setcounter{secnumdepth}{4}
+%\setcounter{tocdepth}{4}
+
+
+%\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+%\usepackage{mathpazo} % Palatino font
+
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{Back.jpg}%
+\vfill
+}}}
+
+\begin{document}
+
+\AddToShipoutPicture*{\BackgroundPic}
+\ClearShipoutPicture
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+\center % Centre everything on the page
+	
+	%------------------------------------------------
+	%	Headings
+	%------------------------------------------------
+{\Huge\bfseries{Underwater Image Enhancement}}\\[0.4cm] % Title of your document
+\textsc{\huge Project Report}\\[0.4cm] % Major heading such as course name	
+\large Submitted in partial fulfillment for the award of the degree\\[0.1cm] \large of\\[0.2cm]
+\textbf{\LARGE BACHELOR OF TECHNOLOGY}\\[0.1cm]
+\textbf{\large IN}\\[0.1cm]
+\textbf{\LARGE ELECTORNICS AND COMMUNICATION\\[0.2cm] ENGINEERING}\\[0.4cm]
+\textsc{Submitted by}\\[0.1in]
+	
+\Large\centering{Amrutha Balachandran \\[0.2cm]
+Anagha A Krishna \\[0.2cm]
+Krishnendu E \\[0.2cm]
+P H Aju}\\
+\includegraphics[height=5cm,width=5cm]{logo.png}\\
+	
+\textsc{\Large Department of Electronics}\\[0.1cm] % Minor heading such as course title
+\textsc{\Large Govt. Model Engineering College}\\[0.1cm] % Main heading such as the name of your university/college
+\textsc{\Large Thrikkakara, Cochin - 682 021}\\[0.1cm] % Main heading such as the name of your university/college
+\textsc{\Large APJ Abdul Kalam Technological University}\\ % Main heading such as the name of your university/college
+\textsc{\Large May 2019} % Main heading such as the name of your university/college
+
+\end{titlepage}
+
+\thispagestyle{empty}
+    \begin{center}
+    \centering\huge\ \textbf{Bonafide certificate}\\ [0.25in]
+    \includegraphics[width=0.3\textwidth]{logo}\\[0.2in]
+	{
+        \large MODEL ENGINEERING COLLEGE\\[0.1in]
+		THRIKKAKARA, KOCHI-21\\[0.1in]
+        \large DEPARTMENT OF ELECTRONICS}\\[0.1in]
+		\large\textsc{APJ Abdul Kalam Technological University}\\[0.1in]
+	
+	  \large This is to certify that the Project Report entitled\\[0.1in]
+	  \Large{\bfseries{Underwater Image Enhancement}}\\[0.1in]
+	{ Submitted by}\\[0.1in]
+	
+	    \centering{Amrutha Balachandran \\
+	    Anagha A Krishna \\
+	    Krishnendu E \\
+	    P H Aju}\\[0.1in]
+	  \large{is a bonafide account of  their work done under our supervision}\\
+	\end{center}
+
+\vspace{2cm}
+\begin{minipage}[t]{5.5cm}
+\centering \textbf{Project Co-ordinator}\\
+\large{Dr. Bineesh T}\\
+Associate Professor\\
+Dept. of Electronics
+\end{minipage}
+\vspace{2cm}
+\begin{minipage}[t]{5cm}
+\centering \textbf{Head of Department}\\
+\large{Dr. Laila D}\\
+Professor\\
+Dept. of Electronics
+\end{minipage}
+\vspace{2cm}
+\begin{minipage}[t]{6cm}
+\centering \textbf{Project Guide}\\
+\large{Smt. Nima P Dharmapal}\\
+Assistant Professor\\
+Dept. of Electronics
+\end{minipage}
+
+\justifying
+\pagenumbering{none}
+\chapter*{Acknowledgement}
+\pagestyle{fancy}
+\justify
+On the recollection of so many great favors and blessings, we offer our sincere thanks to the \textbf{Almighty, the Creator and Preserver}.\\
+%\vspace{1cm}
+
+We would like to thank \textbf{Shri. Kedarnath Shenoy}, Outstanding Scientist and Director, Naval Physical and Oceanographic Laboratory(NPOL), Kochi for allowing us to do the project. We express our gratitude to \textbf{Shri. M Suresh}, Scientist 'G', Chairman HRD Counsil and Group Director(SCP) for providing us the opportunity and facilities to pursue this work.\\
+
+We also express our heartfelt gratitude to \textbf{Shri. K V Rajashekharan Nair}, Scientist 'G', Group Director, (P/A) and \textbf{Dr. Sapana Pavithran}, Scientist 'E', Division Head, HRD and \textbf{Shri. K V Surendran}, Technical Officer 'B', Dealing Officer, HRD for providing ample administrative support throughout the course of this project.\\
+
+We would like to express our sincere gratitude to our guide, \textbf{Dr. G Hareesh}, Scientist 'D', for permitting us to undergo our Project in his Team. We would also like to acknowledge our deep sense of gratitude to all the Scientists in our Department for their valuable assistance throughout the course of this project.\\
+
+We would like to thank \textbf{Shri. Krishnakumar}, Scientist '*' for getting us this opportunity to do our project at NPOL.\\
+
+We would like to express our sincere thanks to \textbf{Dr. Vinu Thomas}, the Principal for his valuable support and advice. We would also like to express our sincere thanks to \textbf{Prof. Laila D}, Head of Department, Department of Electronics. \\
+
+We express our heartfelt gratitude to our Project Coordinator \textbf{Dr. Bineesh T}, Associate Professor and \textbf{Shri. Ganeshnath R}, Assistant Professor for their sincere guidance, valuable suggestions, inspiration, and constant encouragements.
+
+We sincerely thank our Project Guide \textbf{Smt. Nima Dharmapal}, Assistant Professor of Department of Electronics Engineering, for her timely advice and suggestions.\\
+
+Last but not the least we are thankful to one and all of the Department of Electronics Engineering and the whole library staff for their co-operation and active involvement.
+We also thank our families colleagues for their support.
+
+\hbox{} \newpage  
+\pagestyle{fancy}
+
+%\addcontentsline{toc}{chapter}{Abstract}
+\chapter*{\centering Abstract}
+\justify
+\textit{\noindent
+Underwater environment offers many rare attractions for photography.Also navigation underwater,especially for unmanned vehicles like AUVs prove difficult in aspects of collision avoidance,object tracking,recognition etc.Underwater imaging has also been an important source of interest in different branches of technology and scientific research. But underwater images suffer from poor visibility resulting from the attenuation of the propagated light.A study is performed taking optical and acoustic images,where optical images are dehazed and further enhanced while acoustic images are further processed to  cater to the needs of AUV and other rovers.\\
+Hence underwater image enhancement is divided into optical and acoustic domain and enhancement is carried out on both domains. Finally a color compensated and white-balanced version of the original degraded optical image and an effective method for underwater object detection, tracking, collision avoidance using acoustic images are formulated.An understanding of SONAR images is also achieved. Extensive qualitative and quantitative evaluation reveals that the enhanced images and videos are characterized by better exposure of the dark regions, improved global contrast, and edges sharpness. This algorithm is reasonably independent of the camera settings, and improves the accuracy of several image processing applications, such as image segmentation.}\\
+
+\textit{\textbf{keyword}}- 
+Underwater Optical Model, Red Channel Equalisation, Gray World, Acoustic imaging,Object tracking,Object Classification.
+%\end{keyword}
+%\sep%
+
+\pagebreak
+\setcounter{page}{1}
+\pagenumbering{roman}
+\justify
+%\onehalfspacing
+\begin{spacing}{1.2}
+\renewcommand{\contentsname}{Table of Contents}
+\pdfbookmark{\contentsname}{Table of Contents}
+\tableofcontents
+\end{spacing}
+\pagebreak
+%line spacing
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures 
+\pagebreak
+\renewcommand{\nomname}{List of Abbreviations}
+\addcontentsline{toc}{chapter}{List of Abbreviations}
+\printnomenclature
+\pagebreak
+
+\section*{List of Abbreviations}
+\begin{flushleft}
+BP - Background Prior\\
+\vspace{0.5cm}
+CVPR - Computer Vision and Pattern Recognition\\
+\vspace{0.5cm}
+DCP -  Dark Channel Prior\\ 
+\vspace{0.5cm}
+GAC - Global Assembly Cache\\
+\vspace{0.5cm}
+HDR - High-Dynamic-Range\\
+\vspace{0.5cm}
+HR - High Resolution\\
+\vspace{0.5cm}
+MDCP - Median Dark Channel Prior\\
+\vspace{0.5cm}
+PDE - Partial Different Equation\\
+\vspace{0.5cm}
+SIFT - Scale-Invariant Feature Transform\\
+\vspace{0.5cm}
+UDCP - Underwater Dark Channel Prior\\
+\vspace{0.5cm}
+UWLI - Underwater Lidar Imaging System\\
+\vspace{0.5cm}
+SONAR - Sound Navigation And Ranging\\
+\vspace{0.5cm}
+AUV - Autonomous Underwater Vehicle\\
+\vspace{0.5cm}
+SVM - Support Vector Machine\\
+\vspace{0.5cm}
+FPGA - Field Programmable Gate Array\\
+\vspace{0.5cm}
+HCM - 
+\end{flushleft}
+\pagebreak
+
+\addcontentsline{toc}{chapter}{Acknowledgement}
+
+\newcommand{\listequationsname}{List of Equations}
+\newlistof{myequations}{equ}{\listequationsname}
+\newcommand{\myequations}[1]{%
+\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}\par}
+
+\xpretocmd{\listofmyequations}{\addcontentsline{toc}{chapter}{\listequationsname}}
+
+\pagebreak
+\pagenumbering{arabic} 
+\pagestyle{fancy}
+\chapter{Introduction}
+\fancyhf{}
+\fancyhead[r]{%
+   % We want italics
+   \itshape
+   % The chapter number only if it's greater than 0
+\footnotesize{\chaptermark}
+   % The chapter title
+   \leftmark}
+\fancyfoot[LE,LO]{\footnotesize{Govt. Model Engineering College}}
+\fancyfoot[RE,RO]{\footnotesize\thepage}
+\justify
+
+Underwater environment offers many rare attractions such as marine animals and fishes, amazing landscape, and mysterious shipwrecks. Besides underwater photography, underwater imaging has also been an important source of interest in different branches of technology and scientific research, such as inspection of underwater infrastructures and cables, detection of man-made objects, control of underwater vehicles, marine biology research, and archaeology.\\
+\justify 
+Different from common images,underwater images suffer from poor visibility resulting from the attenuation of the propagated light, mainly due to absorption and scattering effects. The absorption substantially reduces the light energy, while the scattering causes changes in the light propagation direction. They result in foggy appearance and contrast degradation, making distant objects misty. Practically, in common sea water images, the objects at a distance of more than 10 meters are almost unperceivable, and the colors are faded because their composing wavelengths are cut according to the water depth.\\
+
+\justify 
+Since the deterioration of underwater scenes results from the combination of multiplicative and additive processes, traditional enhancing techniques such as gamma correction, histogram equalization appear to be strongly limited for such a task. In earlier methods, the problem has been tackled by tailored acquisition strategies using multiple images, specialized hardware or polarization filters. Despite of their valuable achievements, these strategies suffer from a number of issues that reduce their practical applicability.\\
+\justify 
+This is a novel approach to remove the haze in underwater images based on a single image captured with a conventional camera.This approach builds on the fusion of multiple inputs, but derives the two inputs to combine by correcting the contrast and by sharpening a white-balanced version of
+a single native input image. The white balancing stage aims at removing the color cast induced by underwater light scattering, so as to produce a natural appearance of the sub-sea images. The multi-scale implementation of the fusion process results
+in an artifact-free blending.\\
+\justify 
+Later the domain is further shifted to acoustic images ,since light gets scattered at the dark regions underwater and much of the information is lost if optical images are used.Hence acoustic images from SONAR is used,since sound travels faster underwater compared to air,the problem with sound waves being slower than light is solved to an extend.The so  obtained SONAR mages are processed so as to detect objects underwater,find the extend of the object and even track moving objects.The idea can also be extended to classification of objects where the AUV's are trained to detect,identify objects(namely mines) and also to avoid colliding with the objects.\\
+\justify 
+To accomplish an underwater mission effectively and safely, Autonomous Underwater Vehicle(AUV) should be capable of detecting underwater objects and locating them as accurate as possible. For this purpose,accurate underwater object detection and localization based on sonar image processing become one of the most important
+contents in the domain of AUV, and it is also a significant technology in aiding navigation and underwater work \cite{01}.\textbf{Filtering} for noise smoothing is an absolute necessity because the multi-beam sonar images are generally noisy.SONAR images are collected in real time,and a median filter is used to reduce noise and remove outliers.An textbf{improved adaptive thresholding method} based on Otsu method is proposed to extract foreground objects from background and generate a
+binary image in every frame, which can provide accurate
+result of segmentation. It plays an important role in SONAR image processing.A contour detection algorithm is used to find objects’ contour in binary image due to its simplicity and it is also reasonably robust. The position of objects are calculated by their contour’s position in sonar images.Suitable morphological operations are carried out,like erosion and dilation.\\
+
+\justify 
+Navigation is one of the primary challenges in AUV research today.
+Navigation is an important requirement for any type of mobile robot, but this is especially true for autonomous underwater vehicles. Good navigation information is essential for safe operation and recovery of an AUV. For the data gathered by an AUV to be of value, the location from which the data has been acquired must be accurately known. Some of the important concerns for AUV
+navigation, such as the effects of acoustic propagation are unique to the ocean environment\cite{02}.Several methods are available for tracking the objects in the image sequences received from the SONAR fitted on the AUV. These methods are not suitable for undertaking the collision avoidance if the AUV is required to be controlled in the constrained underwater environment.\\
+\justify 
+The time required for extraction of target parameters and for subsequent tracking becomes an important criterion because the AUV is required to be maneuvered well before the collision occurs. A Kalman filter is used for the process. Here tracking of the objects (detected in the sequence of images received from Sonar) based on their centroids has been implemented.Accordingly the calculation of the centroid, tracking of the objects and the calculation of the
+trajectories has been presented.\\
+
+Autonomous underwater vehicles require the capability to understand their environment.This understanding, coupled with the operational goals of the vehicle, determines the subsequent actions of the vehicle. Environmental understanding is realized through the vehicle’s sensors and a priori knowledge. There is a need to  investigate the automatic interpretation of side scan sonar data for the purpose of detecting and classifying undersea
+mines etc.Hence classification is carred out. The interpretation of the data is performedin two stages. The first stage, preprocessing and target detection, uses an adaptive thresholding algorithm coupled with an adaptive averaging technique to locate objects of interestin the sonar image. The second stage,  performs a  classification say of whether each detected object is, or is not, a mine ,and similar other instances.The classification is achieved using SVM.
+
+\fancyhf{}
+\fancyhead[r]{%
+   % We want italics
+   \itshape
+   \footnotesize{\chaptermark}
+   % The chapter title
+   \leftmark}
+
+\fancyfoot[LE,LO]{\footnotesize{Govt. Model Engineering College}}
+\fancyfoot[RE,RO]{\footnotesize\thepage}
+
+
+
+ \chapter{Literature survey}
+ \section{\textbf{Introduction}}
+ \justify
+ 
+An effective technique is introduced, to enhance the images captured underwater and degraded due to the medium scattering and absorption. This method is a single image approach that does not require specialized hardware or knowledge about the underwater conditions or scene structure. It builds on the blending of two images that are directly derived from a color compensated and white-balanced version of the original degraded image.\\
+\justify
+
+The two images to fusion, as well as their associated weight maps, are defined to promote the transfer of edges and color contrast to the output image. To avoid that the sharp weight map transitions create artifacts in the low frequency components of the reconstructed image, we also adapt a multiscale fusion strategy.Our extensive qualitative and quantitative evaluation reveals that our enhanced images and videos are characterized by better exposedness of the dark regions, improved global contrast, and edges sharpness. Our validation also proves that our algorithm is reasonably independent of the camera settings, and improves the accuracy of several image processing applications, such as image segmentation and keypoint matching.\\
+\justify 
+Later the focus is shifted to the acoustic counterpart and the problems with optical images are studied,SONAR images are then detected , tracked and even classified so as to help unmanned AUVs navigate underwater.The  domain is later stretched to video processing where we use a series of such multiple images or frames, and a comparative study of how acoustic imaging overpowers optical imaging is made, wherein we apply the image enhancement operations to the acoustic image, so as to enhance the image and make object detection and tracking, underwater easier.\\
+\pagebreak
+\section{\textbf{Optical Domain}}
+
+The image enhancement scheme proposed in the previous study included, a series of enhancement operations, performed on the available sample, that being optical images. The prime goal was to dehaze the image and sharpen its features.A white balance operation, followed by unsharp masking and gamma correction, all fused with appropriate filters and weight maps resulted in the enhanced image, the input still being the optical image.\\
+
+
+\subsection{Underwater White Balance}
+\justify
+Color constancy is the ability to recognize colors of objects independent of the color of the light source.\cite{1} Obtaining color constancy is of importance for many computervision applications, such as image retrieval, image classification, color object recognition, and object tracking.\\
+
+
+\justify 
+Methods:
+\begin{itemize}
+    \item One of the most successful color constancy methods is \textbf{Gamut Mapping} [a]. The method is based on the observation that only a limited set of RGB values can be observed under a given illuminant. The set of all possible RGB values for the canonical illuminant, typically a white illuminant, is called the canonical gamut. This canonical gamut is proven to be a convex hull in RGB space. The algorithm computes what transformations map an observed gamut into the canonical gamut. From these transformations, the illuminant color is derived.
+    \item \textbf{Max-RGB} is a simple and fast color constancy algorithm which estimates the light source color from the maximum response of the different color channels .
+    \item Another well-known simple color constancy method is based on the Gray-World hypothesis which assumes that the average reflectance in the scene is achromatic. If the images under evaluation are part of a coherent image data base, assuming the average of a scene to be equal to the average reflectance of the database, improves the results over the standard gray-world method. These low-level methods use, even in digital consumer cameras, due to their very low computational costs, i.e., taking
+the maximum (max-RGB) or average pixel values (gray-world).
+
+\item First, we propose the Gray-Edge hypothesis [2], which assumes that the average edge difference in the scene is achromatic. The method is based on observation that distribution of color derivatives exhibits the largest variation in the light source direction. Finally, we propose a new framework of color constancy based on low-levelimage features which includes the known algorithms(gray-world, max-RGB, shades of gray) and newly pro-posed gray-edge and higher order gray-edge algorithms.\\
+  \\
+  \\
+\item \textbf{Gray World Algorithm}: Through experimental results and comprehensive study it is found that the Gray World algorithm achieves good visual performance for reasonably distorted underwater scenes\cite{1}. On analyzing with extremely deteriorated underwater scenes reveals that most traditional methods perform poorly. They fail to remove the color shift, and generally look bluish. The methods that best remove the bluish tone is the Gray World, but this also has a drawback that it suffers from loss of red artifacts.Compensating the red channel:Since for underwater scenes the blue channel contains most of the details, using this information will reduce the ability to recover certain colors such as yellow and orange
+and also it tends to transform the blue areas to violet shades. Compensating the red channel by masking only the green channel these limitations are reduced significantly.
+\end{itemize}
+
+\subsection{Contrast Adjustment}
+\justify
+The processing of underwater image captured is necessary because the quality of underwater images is affected and leads to some serious problems when compared to images from a clearer environment\cite{2}.A lot of noise occurs due to low contrast, poor visibility conditions (absorption of natural light), non uniform lighting and little color variations, pepper noise and blur effect in the underwater images because of all these reasons number of methods are existing to cure these underwater images.\\
+\justify 
+The degradation in image quality may be attributed to absorption and backscattering of light by suspended underwater particles. Moreover, as the depth increases,different colors are absorbed by the surrounding medium depending on the wavelengths. In particular, blue/green color is dominant in the underwater ambience which is known as color cast. For further processing of the image, enhancement
+remains an essential preprocessing operation.Hence various methods were brought
+about to serve the purpose , initially histogram equalisation was used to enhance images(under water images not included),but histogram method alone wasn’t enough since it resulted in cloudy hazy images.
+
+\begin{itemize}
+    \item  \textbf{Histogram equalization} is a method to process images in order to adjust the contrast of an image by modifying the intensity distribution of the histogram. The objective of this technique is to give a linear trend to the cumulative probability function associated to the image [3]. The processing of histogram equalization relies on the use of the cumulative probability function (cdf). The cdf is a cumulative sum of all the probabilities lying in its domain and defined by:
+    \begin{equation}
+    cdf(x)=\sum_{k=-\infty}^\infty xP(k)
+    \end{equation}
+    But in case of underwater images we can’t use histogram equalisation. Due to particle interference,haze formation,output with little or no clarity.
+
+\item Later an \textbf{ improved histogram equalisation process} was introduced wherein a combi-
+nation of the traditional technique with Rayleigh distribution .Where the histogram
+it is stretched towards lower and upper sides within the limits and high value 255
+is reduced.The technique avoids effect of under and over enhanced regions in image
+output.It improves contrast and reduces noise.
+\\
+\item  \textbf{Adaptive  Histogram  Equalization}
+
+It is used to magnify contrast in images.It computes several histograms each corresponding to different parts of the image, and then used to redistribute brightness value of the image.But the drawback is that it tend to over amplify noise in relatively uniform regions of an image .A modification of AHE called \textbf{contrast limited adaptive histogram equalization (CLAHE) }avoids this noise problem by limiting the amplification.
+
+\item \textbf{ Contrast Limitated Adaptive Histogram Equalisation}
+\\Color cast is a major reason for degraded underwater image quality. Having performed contrast stretching, histogram equalization is considered as a next step. It
+is observed that typically the distribution of pixel intensities is non-homogeneous in underwater imagery and for the same reason, global histogram equalization. is not suitable to address the color cast problem. In the proposed approach, the well-known Contrast Limited Adaptive Histogram Equalization (CLAHE) algorithm is adopted for this purpose [3] . 
+
+The CLAHE algorithm is suitable for images with lighter as well as dark portions. It equalizes the histogram of different sections of an image and exploits the intensity normalized pixels to redistribute lightness values,thus improving local contrast of the image to extract hidden information. Contrast Limited Adaptive Histogram Equalization color models are specifically developed for enhancement of images, operates on the tiles of the image. It enhances the contrast of each tile. The induced artificial boundaries are eliminated by combining the neighboring tiles using bilinear interpolation. So the contrast became limited to avoid amplifying any noise especially in homogeneous areas in the image. It restricts the amplification by clipping the histogram at a user defined value called clip limit.Adaptive histogram
+clip adaptively clips level and moderates over enhancement of background regions of images.Further improvement in the field led to a real time application with color equalisation.\\
+
+\item \textbf{ RGB YCbCr Processing Method (RYPro)}
+
+An RGB YCbCr Processing method (RYPro)\cite{1} is proposed for underwater images commonly suffering from low contrast and poor color quality. Color equalization is a
+widely adopted approach for underwater image enhancement. Traditional methods normally involve blind color equalization for enhancing the image under test [6].
+In the present work, processing sequence of the proposed method includes noise removal using linear and non-linear filters followed by adaptive contrast correction in
+the RGB and YCbCr color planes. Performance of the proposed method is evaluated and compared with three golden methods, namely, Gray World (GW), White Patch
+(WP), Adobe Photoshop Equalization (APE) and a recently developed method entitled“Unsupervised Color Correction Method (UCM)”.\\
+\\
+\\
+\\This multi-step image enhancement algorithm (RYPro) not only eliminates the undesirable underwater noise,but also enhances the contrast, luminance and visual quality of the image under test without the loss of any visual information.The proposed RYPro method provides improved enhancement than the existing algorithms.
+A comparative study of assessment parameters also ensured noteworthy results of
+the proposed method for further post processing.
+Execution time analysis of the proposed algorithm also indicates the suitability
+of the proposed method for real-time applications.With suitable modifications, the
+computational cost can be further reduced for direct application of RYPro in realtime video enhancement.\\
+
+\end{itemize}
+
+\justify 
+On further study it was found that optical image prove futile in underwater applications, though they can have better resolution than their contemporaries, they prove ineffective especially in dark.The light gets scattered very easily in dark and recapturing it would be difficult.\\
+
+\section{\textbf{Acoustic Domain}}
+
+In general, the resolution performance of underwater acoustic imaging systems is lower than for optical systems when the water is clear. But since their range, especially in dirty, murky waters, is significantly greater than for optical systems, there is probably a valuable role for them to play in the underwater world.\\
+\justify
+The purpose of underwater  acoustic imaging is to produce two-dimensional images of underwater  objects that are somehow recognizable, or at least useful. Underwater  acoustic imaging systems  are generally   useful for  either classifying objects  or observing the details of objects, usually from some form of underwater vehicle. For example,  acoustic imaging systems are useful in differentiating mines from rocks,  coral  heads, and garbage on  the ocean bottom,  and in  general, differentiating between objects  that warrant further investigation  and the  many uninteresting objects that are in  the ocean.  Acoustic imaging systems  are also useful for inspecting or examining  objects when water turbidity precludes the use of closed circuit television or other  optical means of viewing.\\
+ \\
+\textbf{ \textit{Why bother  with  acoustic imaging systems when underwater television cameras  already  exist?}}\\
+\justify 
+Although optical visibility  ranges  can sometimes  extend to 30-60 m in very clear waters such as those of the Caribbean,  most  ocean  waters are  much more turbid. Deep ocean  water (undisturbed) typically  has 6-15 m  visibility, while  near-shore waters typi- cally  have  1-6 m. Within harbors, estuaries, and, in general, wherever man disturbs  or  impacts  the  environment, visibilities are  generally in the 0-1 m  range. This last  includes even the deeg  ocean and  the Carribean when man is actively working on  the  bottom, stirring up  clouds of sediment.\\
+Thus  optical visibility is often  most limited just when it is most needed. Fortunately, acoustic  energy more easily penetrates  the  mud and silt that causes optical  turbidity. Because of this,  the range of acoustical  systems is generally  larger than  for  optical systems. Unfortunately,  the best resolution capability of acoustic imaging systems is usually significantly  lower than that of optical systems. This is because the useful wavelengths of sound  for  underwater imaging are much longer than  optical wavelengths.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=13cm,height=8cm]{samp1.jpg}
+\caption[ shows  how underwater acoustic imaging performance might compare  with  optical  and  conventional sonar systems  with  respect to water turbidity, range and resolution. ]{Comparison}
+\label{Overview}
+\end{figure}
+
+\justify 
+\textbf{Sector-scan SONARs} display reflected acoustic intensity on a polar plot of bearing versus range. An object on the bottom appears on the display as a bright spot, backed by a two dimensional shadow. A side-scan sonar produces a rectangular display that is very similar. In certain geometries, these systems can produce very good images of objects on the ocean floor. Acoustic imaging systems generally (although
+not strictly) produce images in a vertical plane similar to that used in optical imaging systems, that is, reflected energy versus vertical and lateral directions at some range.\\
+\textit{Typical characteristics of underwater acoustic imaging systems are:}
+\begin{itemize}
+\item Frequencies 100 kHz-2 MHz
+    \item Wavelengths 0.075 cm- 1.5 cm
+    \item Apertures 10 cm-1 m
+    \item Resolution 0.1-2 degrees
+    \item Ranges 1 m-100 m
+  \item Depths of Field 1 cm-50 m.
+\end{itemize}
+
+\textbf{SOUND NAVIGATION AND RANGING}
+
+\\SONAR is simply making use of an echo. When an animal or machine makes a noise, it sends sound waves into the environment around it. Those waves bounce off nearby objects, and some of them reflect back to the object that made the noise. It's those reflected sound waves that you hear when your voice echoes back to you from a canyon. Whales and specialized machines can use.\\
+
+
+\textbf{Side Scan Sonars}
+
+\\Single side scan sonar devices transmit two beams, one on each side. These beams are narrow along-track to get a high resolution, and wide across-track to cover as much range as possible. The distance from the sonar to a point on the seabed or target is called the slant range. It should not be confused with
+the ground range, between this point the point immediately below the sonar. The angle of incidence of the incoming acoustic wave is a key factor in understanding how it will scatter. Most of the energy is reflected in the specular direction. Some will be reflected along other angles (scattering angles, distributed along the main reflection angle). Depending on the seafloor or the submerged target, some energy will be lost in the seabed. A very small portion, several orders of magnitude lower, might be reflected back toward the imaging sonar also known as backscatter. The seabed reverberation area is mainly constituted by background noises.\\
+
+
+\\The brightness of sonar image is related to the ratio between the echoes to the
+noise, if a comparison with ordinary optical images is made, sonar images are low frequency images and they have less detail, and the background noises of sonar images are high-frequency impulse noises with larger amplitudes relative to the multiple echoes from the target area. Because of the complexity of the underwater environment, the gray level or monochrome colour of sonar image from the target area is usually smaller than that of background noise. To improve the visual effects and reduce the influences of the noise, it is very important to remove noises of sonar images. \\
+
+
+Digital images captured from the echoes of sidescan sonar onboard an unmanned under sea vehicle, are usually characterized for their low resolution. This is so because underwater, sound transmission is limited and this is most notable in useable ranges. The usable range of high frequency sound energy is greatly reduced by seawater, typically to around 50 to 150 m Low frequency sound energy is reduced at a much lesser rate with usable ranges of in excess of 250 m achievable. Therefore, a tradeoff exists between higher resolution images produced by a high frequency side scan sonar and the longer range provided by a low frequency side scan sonar. \\
+
+The proposed methodology where unmanned AUV's navigate underwater with proper object tracking and collision avoidance,is:\\
+
+\textbf{Denoising}
+
+\\Multi-beam sonar images can be very noisy, due to
+reverberation from the seabed, surface or water column .Filtering for reducing noise is an absolute necessity in the case of sonar images, especially in the case of multi-beam sonar images.The median filter is normally used to reduce noise in an image. It is quite popular because, for certain types of random noise, they provide excellent noise-reduction capabilities,
+with considerably less blurring than linear smoothing filter of similar size and preserving useful detail in the image.\\
+
+\begin{itemize}
+    \item \textbf{Object Detection}
+    
+\\The purpose of image segmentation is to separate
+foreground objects from the image . It plays an important
+role in sonar image processing because the result will directly affect the accuracy of the following object localization.Thresholding is an important technique for image
+segmentation, and many researchers have paid a lot of
+attention to the methods of how to select reasonable
+thresholds in sonar images.Sonar has long been used for detecting objects on the ocean bottom. When the acoustic signals encounter an object, part of the energy will be reflected back and will be detected by the sensor and part of the energy will be diffracted and kept propagating. Echo strength is determined not only by the acoustic signal travelled distance, but also by the material,shape, size of the object.\\
+
+A sonar image is comprised of a
+matrix of pixels having a grey level typically on a scale from 0 to 255. The grey levels of pixels belonging to the object are substantially different from the grey levels of the pixels belonging to the background. Normally, objects are represented in the image by highlights or shadows alone. Base on these characteristics, this paper presents an improved adaptive thresholding method based on the Otsu method to separate foreground objects from the sonar images.\\
+
+\end{itemize}
+
+
+To accomplish an underwater mission
+effectively and safely, Autonomous Underwater Vehicle
+(AUV) should be capable of detecting underwater objects and locating them as accurate as possible. For this purpose,accurate underwater object detection and localization based on sonar image processing become one of the most important contents in the domain of AUV, and it is also a significant technology in aiding navigation and underwater work.\\
+
+First set of approaches can be outlined as follows.
+\begin{itemize}
+    \item  Filtering: Filtering for noise smoothing is an absolute necessity because the multi-beam sonar images are generally noisy. In this paper, sonar images are collected in real time, and a median filter is used to reduce noise and remove outliers.
+\item  Underwater object detection: An improved adaptive thresholding method based on Otsu method is proposed to extract foreground objects from background and generate a binary image in every frame, which can provide accurate result of segmentation. It plays an important role in sonar image processing.
+\item  Underwater object localization: Moore-Neighbor
+contour detection algorithm is used to find objects’ contour in binary image due to its simplicity and it is also reasonably robust. The position of objects are calculated by their contour’s position in sonar images.
+\end{itemize}
+
+\section{Object Detection}
+\subsection{Segmentation}
+
+Digital image processing is the use of computer algorithms to perform image processing on digital images. Image segmentation is an important and challenging process of image processing. Image segmentation technique is used to partition an image into meaningful parts having similar features and properties. The main aim of segmentation is simplification i.e. representing an image into meaningful and easily analyzable way. Image segmentation is necessary first step in image analysis. The goal of image segmentation is to divide an image into several parts/segments having similar features or attributes.\\
+
+The image segmentation can be classified into two basic types: \textbf{ Local segmentation} (concerned with specific part or region of image) and \textbf{Global segmentati} on (concerned with segmenting the whole image, consisting of large number of pixels).\\
+
+The image segmentation approaches can be categorized into two types based on properties of image.\\
+
+\textbf{Discontinuity detection based approach}:This is the approach in which an image is segmented into regions based on discontinuity. The edge detection based segmentation falls in this category in which edges formed due to intensity discontinuity are detected and linked to form boundaries of regions .\\
+
+\textbf{Similarity detection based approach }: This is the approach in which an image is segmented into regions based on similarity. The techniques that falls under this approach are: thresholding techniques, region growing techniques and region splitting and merging. These all divide the image into regions having similar set of pixels. The clustering techniques also use this methodology.\\
+
+
+\textbf{ Edge Based Segmentation Method}\\
+
+The edge detection techniques are well developed techniques of image processing on their own. The edge based segmentation methods are based on the rapid change of intensity value in an image because a single intensity value does not provide good information about edges. Edge detection techniques locate the edges where either the first derivative of intensity is greater than
+a particular threshold or the second derivative has zero crossings. In edge based segmentation methods, first of all the edges are detected and then are connected together to form the object boundaries to segment the required regions. The basic two edge based segmentation methods are: Gray histograms and Gradient based methods. To detect the edges one of the basic edge
+detection techniques like sobel operator, canny operator and Robert‟s operator etc can be used. Result of these methods is basically a binary image. These are the structural techniques based on discontinuity detection [For object detecton,we bring down the alternatives to one single solution.\\
+
+\textbf{Region Based Segmentation Method}\\
+
+The region based segmentation methods are the methods that segments the image into various regions having similar characteristics. There are two basic techniques based on this method.\\
+
+1)\textit{Region growing methods:} The region growing based segmentation methods are the methods that segments the image into various regions based on the growing of seeds (initial pixels). These seeds can be selected manually (based on prior
+knowledge) or automatically (based on particular application). Then the growing of seeds is controlled by connectivity between pixels and with the help of the prior knowledge of problem, this can be stopped.\\
+
+2)\textit{Region splitting and merging methods}: The region splitting and merging based segmentation methods uses two basic techniques i.e. splitting and merging for segmenting an image into various regions. Splitting stands for iteratively dividing an image into regions having similar characteristics and merging contributes to combining the adjacent similar regions. Following diagram shows the division based on quad tree.\\
+
+\textbf{Clustering Based Segmentation Method}\\
+
+The clustering based techniques are the techniques, which segment the image into clusters having pixels with similar characteristics. Data clustering is the method that divides the data elements into clusters such that elements in same cluster are more similar to each other than others. There are two basic categories of clustering methods: Hierarchical method and Partition
+based method. \\
+
+
+\textit{The hierarchical methods
+}are based on the concept of trees. In this the root of the tree represents the whole database and the internal nodes represent the clusters. On the other side \textit{ the partition based methods} use optimization methods iteratively to minimize an objective function. In between these two methods there are various algorithms to find clusters. \\
+
+There are basic two types of clustering.\\
+
+
+\textit{1) Hard Clustering:} Hard clustering is a simple clustering technique that divides the image into set of clusters such that one pixel can only belong to only one cluster. In other words it can be said that each pixel can belong to exactly one cluster.These methods use membership functions having values either 1 or 0 i.e. one either certain pixel can belong to particular cluster or not. An example of a hard clustering based technique is one k-means clustering based technique known as HCM.In this technique, first of all the centers are computed then each pixel is assigned to nearest center. It emphasizes on
+maximizing the intra cluster similarity and also minimizing the inter cluster equality.\\
+
+
+\textit{2) Soft clustering: }The soft clustering is more natural type of clustering because in real life exact division is not possible due to the presence of noise. Thus soft clustering techniques are most useful for image segmentation in which division is not strict. The example of such type of technique is fuzzy c-means clustering. In this technique pixels are partitioned into clusters based on partial membership i.e. one pixel can belong to more than one clusters and this degree of belonging is described by membership values. This technique is more flexible than other techniques.\\
+
+Since the purpose of image segmentation is to separate
+foreground objects from the image. We choose thresholding operation.\\
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=12cm]{comparison.jpg}
+\caption[Comparison of segmentation methods]{Comparison of segmentation methods}
+\label{Comparison of segmentation methods}
+\end{figure}
+
+\begin{itemize}
+
+\item \textbf{Thresholding Method}
+These methods are the simplest methods for image segmentation. They divide the image pixels with respect to their intensity level. These methods are used over images having lighter objects than background. The selection of these
+methods can be manual or automatic i.e. can be based on prior knowledge or information of image features. There are basically
+three types of thresholding :\\
+
+
+1)\textit{ Global Thresholding}: This is done by using any appropriate threshold value/T. This value of T will be constant for whole
+image. On the basis of T the output image can be obtained from original image as:
+\begin{equation}
+q(x,y)= { 1,p(x,y)>T
+          0,p(x,y)<or=T}\\
+    
+\end{equation}
+          
+
+2)\textit{Variable Thresholding}: In this type of thresholding, the value of T can vary over the image. This can further be of two
+types:
+
+\\-Local Threshold: In this the value of T depends upon the neighborhood of x and y.\\
+
+
+\\- Adaptive Threshold: The value of T is a function of x and y.\\
+
+
+\\3) \textit{Multiple Thresholding}: In this type of thresholding, there are multiple threshold values like T0 and T1. By using these
+output image can be computed as:
+        
+         q(x,y)= {m,p(x,y)>T1
+                 n,p(x,y)< or = T1
+                 0,p(x,y) < or = T0}
+                 \\
+
+
+\item  \textbf{Improved adaptive thresholding method}
+
+\\Otsu method chooses the optimal threshold T by
+maximizing the between-class variance, which is equivalent
+to minimizing the within-class variance, since the total
+variance (the sum of the within-class variance and the
+between-class variance) is constant for different partitions.\\
+
+\begin{equation}
+    {\sigma}_{T}^2 = {\sigma}_{W}^2 + {\sigma}_{B}^2 
+\end{equation}
+
+where W stands for within class  variance and B for between class variance,T for threshold.
+
+\begin{equation}
+    T = arg[{\max}_{0{\leq}T{\leq}L-1} ({\sigma}_{B}^2(t))] = arg[{\min}_{0{\leq}T{\leq}L-1} ({\sigma}_{W}^2(t))]
+\end{equation}
+
+\\Otsu method does have its limitations, the correct image segmentation cannot be obtained when the grey level of objects is closed to the grey level of background or the proportion of objects is low.\\
+
+\\To solve this problem background should be decreased for enhancing the contrast and highlighting before using Otsu method.To this aim, Power-law transformation has been applied,which has the following basic formwhere x and y are input and output grey, c and r are positive constant.\\
+\begin{equation}
+    y=cx^r
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=5cm]{adaptivets.png}
+\caption[Adaptive thresholding]{Adaptive thresholding}
+\label{Adaptive thresholding}
+\end{figure}
+
+\\By using this transformation, the gray level of each pixel can be easily changed in sonar image.\\
+
+\\Other transformations may also be applied because enhancing an image provides better contrast and a more detailed image as compare to non enhanced image. It is used to enhance medical images, images captured in remote sensing, images from satellite e.t.c.Our idea is to adjust the contrast,in the image so obtained so that segmentation becomes easier.\\
+
+\\The transformation function has been given below\\
+
+s = T ( r )
+
+\\where r is the pixels of the input image and s is the pixels of the output image. T is a transformation function that maps each value of r to each value of s. Image enhancement can be done through gray level transformations which are discussed below.\\
+
+\textbf{Gray level transformation}
+
+There are different basic gray level transformation.
+\begin{itemize}
+    \item Linear
+   \\ First we will look at the linear transformation. Linear transformation includes simple identity and negative transformation. Identity transformation has been discussed in our tutorial of image transformation, but a brief description of this transformation has been given here.\\
+   
+ \begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=5cm]{linear1.jpg}
+\caption[Linear Transformation]{Linear Transformation}
+\label{Linear Transformation}
+\end{figure}
+    
+     \\Identity transition is shown by a straight line. In this transition, each value of the input image is directly mapped to each other value of output image. That results in the same input image and output image.\\
+     
+   \item  Negative
+   
+  \\ The second linear transformation is negative transformation, which is invert of identity transformation. In negative transformation, each value of the input image is subtracted from the L-1 and mapped onto the output image.\\
+  
+  \begin{figure}[H]
+\centering
+\includegraphics[width=10cm,height=10cm]{negetiveein.jpg}
+\caption[Negative Transformation]{Negative Transformation}
+\label{Negetive Transformation}
+\end{figure}
+   
+ In this case the following transition has been done.\\
+
+   s = (L – 1) – r\\
+
+ since the input image of Einstein is an 8 bpp image, so the number of levels in this image are 256. Putting 256 in the equation, we get this\\
+
+   s = 255 – r\\
+
+ So each value is subtracted by 255 and the result image has been shown above. So what happens is that, the lighter pixels become dark and the darker picture becomes light. And it results in image negative.
+  
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=5cm]{negetive1.jpg}
+\caption[Negetive Transformation]{Negetive Transformation}
+\label{Negetive Transformation}
+\end{figure}
+
+
+
+    \item Logarithmic transformations
+  The log transformations can be defined by this formula.\\
+
+  s = c log(r + 1)\\
+
+ Where s and r are the pixel values of the output and the input image and c is a constant. The value 1 is added to each of the pixel value of the input image because if there is a pixel intensity of 0 in the image, then log (0) is equal to infinity. So 1 is added, to make the minimum value at least 1.
+ During log transformation, the dark pixels in an image are expanded as compare to the higher pixel values. The higher pixel values are kind of compressed in log transformation. \\
+ 
+ \begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=10cm]{logein.jpg}
+\caption[Log Transformation] {Log Transformation}
+\label{Log Transformation}
+\end{figure}
+ 
+ 
+\end{itemize}
+   
+
+
+\end{itemize}
+
+
+\section{Object Localisation}
+
+The purpose of object localization is to calculate the
+position of underwater objects from sonar image. Firstly,
+contour detection algorithm will be used to find objects’
+contour. Then the position of objects can be calculated by
+their contour.
+
+\subsection{Contour detection}
+
+Contour detection is one of many preprocessing techniques
+performed on digital images in order to extract their boundary
+and information about their general shape.
+\textbf{Moore Neighbour Algorithm}
+\begin{itemize}
+    \item Given a digital pattern i.e. a group of white pixels, on a background of black pixels, the task is to locate a white pixel and declare it as your "start" pixel. \item We'll start from the bottom left corner of the grid, scanning each column of pixels from the bottom going upwards (starting from the leftmost column and proceeding to the right) until we encounter a white pixel.
+   \item We'll declare that pixel as "start" pixel. Without loss of generality, we will extract the contour by going around the pattern in a clockwise direction.
+   \item Every time you hit a white pixel P, go back to the black pixel you were previously standing on, and then go around pixel P in a clockwise direction, visiting each pixel in its Moore neighbor, until you hit a white pixel. \item The algorithm terminates when the start pixel is visited for a second time.
+   \end{itemize}
+   
+The white pixels you walked over will be the contour of the pattern.
+
+\begin{figure}[moore.png]
+\centering
+\includegraphics[width=15cm,height=5cm]{moore.png}
+\caption[Moore's Neighbour Algorithm]{Moore's Neighbour Algorithm}
+\label{Moore's Neighbour Algorithm}
+\end{figure}
+   
+The main weakness of Moore-Neighbor algorithm lies in
+the choice of the stopping criterion, it fails to extract the
+contour of a large family of patterns which frequently occur
+in real life applications.
+
+Using \textbf{Jacob's stopping criterion} will greatly improve the performance of this algorithm.The Jacob’s stopping criterion, proposed by Jacob Eliosoff,
+states that \textit{\textbf{termination should take place only when the start
+pixel is encountered the second time in the same way as it was
+found previously.}}
+
+\begin{figure}[contour.png]
+\centering
+\includegraphics[width=15cm,height=5cm]{contour.png}
+\caption[Contour Detection]{Contour Detection}
+\label{Contour Detection}
+\end{figure}
+
+\subsection{Object Localizaton}
+
+After contour detection, the position of object in sonar
+image can be easily calculated. The chain code encodes the
+shape of the object, not its localization. But we only need to
+remember the coordinates of the first pixel in the chain to
+solve it. The center point which is the minimum enclosing
+rectangle of object’s contour will be used to describe the
+position of object in sonar image.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=5cm]{localisation.png}
+\caption[Object Localization]{Object Localization}
+\label{Object Localization}
+\end{figure}
+
+
+
+\section{Object Tracking}
+\subsection{Tracking Using Centroid}
+
+The Centroid tracking combines both object and motion recognition characteristics for practical
+target tracking from imaging sensors. The characteristics of the image considered are the intensity
+and size of the cluster. The pixel intensity is discretised into several layers of gray level intensities
+and it is assumed that sufficient target pixel intensities are within the limits of certain target
+layers. The centroid tracking implementation involves the conversion of the image into a binary
+image and applying upper and lower threshold limits for the “target layers”. The binary target
+image is then converted to clusters by using nearest neighbour criterion. If the target size is
+known, then it is used to set limits for removing those clusters that differ sufficiently from the
+size of the target cluster to reduce computational complexity. The centroid of the clusters is then
+calculated and this information is used for tracking the target. The Centroid tracking involves the
+following steps:
+
+\begin{itemize}
+\item Pre-processing to remove the noise / blur from the images. 
+\item  Identifying potential targets by image segmentation methods. \item The image is segmented into objects, shadow and sea bottom reverberation regions and then the edges of the object are extracted.
+\item Calculation of the centroids for all the detected objects.
+\item The  above steps are performed on all subsequent images
+\item Identification of the moving and stationary objects.
+\item Determination of the association of the moving objects based on the maximum
+speed criterion.
+\item tracing movement of centroid to find real time motion.
+\item  Calculation of the trajectory.
+\item Calculation of Collision course by taking the own speed and direction into consideration .
+\item Finally executing the manoeuvring commands to AUV
+\end{itemize}
+
+\subsection{ Prediction Using Kalman Filter}
+
+From SONAR data, the position (say centroid) will be described in X-Y coordinates in pixel units on the image ( i.e. image coordinates).Once objects are detected, we extract their outline and track their centroids across the image plane using separate linear Kalman filters to estimate their x and y coordinates. The Kalman filter provides a general solution to the recursive minimised mean square linear estimation problem.
+The mean square error will be minimised as long as the target dynamics and the measurement noise are accurately modelled. In addition, the Kalman filter provides a convenient measure of the estimation accuracy through the covariance matrix, and the gain sequence automatically adapts to
+the variability of the data.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=10cm]{kala.jpg}
+\caption[Prediction using Kalman]{Prediction using Kalman}
+\label{Prediction Using Kalman}
+\end{figure}
+
+\section{Object Classificaton}
+\\Autonomous underwater vehicles require the capability to understand their environment.This understanding, coupled with the operational goals of the vehicle, determines the subsequent actions of the vehicle. Environmental understanding is realized through the vehicle’s sensors and a priori knowledge.Classification is technique to categorize our data into a desired and distinct number of classes where we can assign label to each class.\\
+\textbf{Binary classifiers}
+\\Classification with only 2 distinct classes or with 2 possible outcomes.\\
+\textbf{Multi-Class classifiers}
+\\Classification with more than two distinct classes.\\
+
+\\1). \textbf{Naive Bayes (Classifier)}:\\
+
+\\Naive Bayes is a probabilistic classifier inspired by the Bayes theorem. Under a simple assumption which is the attributes are conditionally independent.The classification is conducted by deriving the maximum posterior which is the maximal P(Ci|X) with the above assumption applying to Bayes theorem. This assumption greatly reduces the computational cost by only counting the class distribution. Even though the assumption is not valid in most cases since the attributes are dependent, surprisingly Naive Bayes has able to perform impressively.\\
+
+\begin{equation}
+P(c|x)= \frac{P(x|c)P(c)}{P(x)}
+\end{equation}
+
+P(c|x)=Posterior Probablity
+P(x|c)=Likelihood
+p(c)=Class Prior Probablity
+P(x)=Predictor Prior Probablity
+
+\\Naive Bayes is a very simple algorithm to implement and good results have obtained in most cases. It can be easily scalable to larger datasets since it takes linear time, rather than by expensive iterative approximation as used for many other types of classifiers.Naive Bayes can suffer from a problem called the zero probability problem. When the conditional probability is zero for a particular attribute, it fails to give a valid prediction. This needs to be fixed explicitly using a Laplacian estimator.\\
+
+\\Advantages: This algorithm requires a small amount of training data to estimate the necessary parameters. Naive Bayes classifiers are extremely fast compared to more sophisticated methods.\\
+
+\\Disadvantages: Naive Bayes is is known to be a bad estimator.\\
+
+\\Steps for Implementation:\\
+
+  \\ a) Initialise the classifier to be used.\\
+   
+\\   b) Train the classifier: All classifiers in scikit-learn uses a fit(X, y) method to fit the model(training) for the given train data X and train label y.\\
+   
+\\  c)  Predict the target: Given an non-label observation X, the predict(X) returns the predicted label y.\\
+  
+ \\ d)  Evaluate the classifier model.\\
+    
+  \\2).\textbf{  Support Vector Machine}:
+
+\\ Support vector machine is a representation of the training data as points in space separated into categories by a clear gap that is as wide as possible. New examples are then mapped into that same space and predicted to belong to a category based on which side of the gap they fall.\\
+
+\\\textit{Advantages}: Effective in high dimensional spaces and uses a subset of training points in the decision function so it is also memory efficient.\\
+
+\\\textit{Disadvantages}: The algorithm does not directly provide probability estimates, these are calculated using an expensive five-fold cross-validation.\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=5cm]{svmpic.png}
+\caption[SVM]{SVM}
+\label{SVM}
+\end{figure}
+
+\\Examples of hyperplanes\\
+\\-H1 is not a good hyperplane as it doesn’t separate the classes.\\
+\\-H2 does but only with small margin.\\
+\\-H3 separates them with maximum margin (distance).\\
+
+
+\\There are three main parameters which we could play with when constructing a SVM classifier:\\
+
+\\ - Type of kernel\\
+\\ - Gamma value\\
+\\ - C value\\
+
+    
+  \\ 3).\textbf{  K-NEAREST NEIGHBOUR (KNN)}:\\
+
+\\knn classfied an object by a majority vote of the object’s neighbours, in the space of input parameter. The object is assigned to the class which is most common among its k (an integer specified by human) nearest neighbour.\\
+
+\\It is a non-parametric, lazy algorithm. It’s non-parametric since it does not make any assumption on data distribution (the data does not have to be normallly distributed). It is lazy since it does not really learn any model and make generalization of the data (It does not train some parameters of some function where input X gives output y).\\
+
+\\So strictly speaking, this is not really a learning algorithm. It simply classfies objects based on feature similarity (feature = input variables).\\
+
+\\Classification is computed from a simple majority vote of the k nearest neighbours of each point.\\
+
+ \\Classifying new example depending on Training instance distance.\\
+ 
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=5cm]{knnpic.png}
+\caption[k nearest neighbour]{k nearest neighbour}
+\label{k nearest  neighbour}
+\end{figure}
+
+\\\textit{Advantages}: This algorithm is simple to implement, robust to noisy training data, and effective if training data is large.\\
+
+\\\textit{Disadvantages}: Need to determine the value of K and the computation cost is high as it needs to computer the distance of each instance to all the training samples.\\
+
+\\4).\textbf{ Decision Tree}:
+
+\\Given a data of attributes together with its classes, a decision tree produces a sequence of rules that can be used to classify the data.\\
+
+\\\textit{Description}: Decision Tree, as it name says, makes decision with tree-like model. It splits the sample into two or more homogeneous sets (leaves) based on the most significant differentiators in your input variables. To choose a differentiator (predictor), the algorithm considers all features and does a binary split on them (for categorical data, split by cat; for continuous, pick a cut-off threshold). It will then choose the one with the least cost (i.e. highest accuracy), and repeats recursively, until it successfully splits the data in all leaves (or reaches the maximum depth).\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=5cm]{dt.png}
+\caption[Decision Tree]{Decision Tree}
+\label{Decision Tree}
+\end{figure}
+
+
+\\\textit{Advantages}: Decision Tree is simple to understand and visualise, requires little data preparation, and can handle both numerical and categorical data.\\
+
+\\\textit{Disadvantages}: Decision tree can create complex trees that do not generalise well, and decision trees can be unstable because small variations in the data might result in a completely different tree being generated.\\
+
+5).\textbf{ Random Forest}
+
+\\Random forest is an ensemble model that grows multiple tree and classify objects based on the “votes” of all the trees. i.e. An object is assigned to a class that has most votes from all the trees. By doing so, the problem with high bias (overfitting) could be alleviated.\\
+
+\\Random forest classifier is a meta-estimator that fits a number of decision trees on various sub-samples of datasets and uses average to improve the predictive accuracy of the model and controls over-fitting. The sub-sample size is always the same as the original input sample size but the samples are drawn with replacement.\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=5cm]{randforest.png}
+\caption[Decision Tree]{Decision Tree}
+\label{Decision Tree}
+\end{figure}
+
+\textit{Pros of RF}:
+
+    It could handle large data set with high dimensionality, output Importance of Variable, useful to explore the data
+    Could handle missing data while maintaining accuracy
+
+\textit{Cons of RF}:
+
+    Could be a black box, users have little control on what the model does
+
+\\\textit{Advantages}: Reduction in over-fitting and random forest classifier is more accurate than decision trees in most cases.\\
+
+\\\textit{Disadvantages}: Slow real time prediction, difficult to implement, and complex algorithm.\\
+
+\chapter{Optical Image Domain}
+\section{System Overview}
+\justify
+The basic Block Diagram of the Underwater Image Enhancement is show below.
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=5cm]{Block.png}
+\caption[Method Overview]{Method Overview}
+\label{Overview}
+\end{figure}
+\\The block level representation of the project consists of 4 parts:\\
+\\
+1. White Balancing
+\\
+2. Sharpening 
+\\
+3. Gamma Correction
+\\
+4. Multiscale Fusion
+
+\section{White Balancing}
+\justify
+White-balancing is the process of removing the undesired color castings due to various illumination or medium attenuation properties. In underwater, the perception of color is highly correlated with the depth, and the main problem is the green-bluish appearance that needs to be resolved. As the light penetrates the water, the attenuation process affects selectively the wavelength spectrum, thus affecting the intensity and the appearance of a colored surface.\\
+\\Since the scattering attenuates more the long wavelengths than the short ones, the color perception is affected as we go down in deeper water. In practice, the attenuation and the loss of color also depends on the total distance between the observer and the scene. Large spectrum of existing white balancing methods were considered, a number of solutions were identified that are both effective and suited to the problem. Some of them are as listed below,\\
+\begin{itemize}
+\item{Gray world algorithm}
+\item{Max RGB}
+\item{Shades of grey}
+\item{Grey edge hypothesis}
+\end{itemize}
+\\The gray world algorithm was selected from the rest because it achieves good visual performance for reasonably distorted underwater scenes. However, a deeper investigation dealing with extremely deteriorated underwater scenes revealed that the other methods perform poorly. They fail to remove the color shift, and generally look bluish. Even though Gray world algorithm suffer from severe red artifacts which turns out to be a disadvantage. This is due to the very small mean value for the red channel, leading to an overcompensation of the red channel. Hence to nullify this effect what we do is use the green channel to compensate the red channel.
+
+
+
+\section{Sharpening}
+\justify
+We use the unsharp masking principle to sharpen the white balanced image, simultaneously by using the same white balanced image to do gamma correction. Thus the white balanced image act as the input for sharpening and gamma correction.\\
+\\There are certain steps to do unsharp masking which are as follows:-
+\begin{itemize}
+\item{Form the blurred image of input image (white balanced image). This is actually smoothening. It is done using Gaussian filter. The equation for a Gaussian filter for 2D image is as given below}
+\item{Subtract this from input image to obtain mask.
+\begin{equation}
+G_{mask}(x,y) = F(x,y) - H(x,y)
+\end{equation}}
+\item{The output image (sharpened image) is given by the equation.
+\begin{equation}
+S=(I+N(I-G*I))/2
+\end{equation}
+ with $N{.}$ denoting the linear normalization operator, also named histogram stretching in the literature. This operator shifts and scales all the color pixel intensities of an image with a unique shifting and scaling factor defined so that the set of transformed pixel values cover the entire available dynamic range.The sharpening method defined is referred to as normalized unsharp masking process. It has the advantage to not require any parameter tuning, and appears to be effective in terms of sharpening. }
+\end{itemize}
+
+\section{Gamma Correction}
+\justify
+The white balanced image enters the gamma correction block as shown in block diagram parallel to the sharpening block. Gamma correction is done to brighten up the image. It is an exponential function dependent on the value of gamma (G) that decides towards which side the input image have to be shifted. For G<1 image shift to darker end and G>1 image shift to lighter end.\\
+\\The image as being corrected by a set of gamma values and the best value is taken into consideration.
+
+\section{Multiscale Fusion}
+\justify
+The last block is the multiscale fusion. It has two parts. The first one is to take the 3 different weighted image of the sharpened as well as gamma corrected images. All 3 weighted images are added to get two different images corresponding to sharpening and gamma correction. Second is to use these combined images in laplacian pyramids along with Gaussian pyramid output of the white balanced images. These pyramids are combined to get the final output image.
+
+
+\section{Software Description}
+\justify
+The software section of the project is the part that accepts the image input from the camera and processes it in order for it to be of the form necessary for projection. It makes use of the following softwares. 
+
+\subsection{Open CV}
+\justify
+OpenCV (Open Source Computer Vision Library) is released under a BSD license and hence it's free for both academic and commercial use. It has C++, C, Python and Java interfaces and supports Windows, Linux, Mac OS, iOS and Android. OpenCV was designed for computational efficiency and with a strong focus on real-time applications. Written in optimized C/C++, the library can take advantage of multi-core processing. Enabled with OpenCL, it can take advantage of the hardware acceleration of the underlying heterogeneous compute platform. \\
+\\The library has more than 2500 optimized algorithms, which includes a comprehensive set of both classic and state-of-the-art computer vision and machine learning algorithms. These algorithms can be used to detect and recognize faces, identify objects, classify human actions in videos, track camera movements, track moving objects, extract 3D models of objects, produce 3D	point clouds from stereo cameras, stitch images together to produce a high resolution image of an entire scene, and similar images from an image database, remove red eyes from images taken using	ash, follow eye movements, recognize scenery and establish markers to overlay it with augmented reality, etc. OpenCV has more than 47 thousand people of user community and estimated number of downloads exceeding 14 million. The library is used extensively in companies, research groups	and by governmental bodies.
+
+\subsection{Python} 
+\justify
+Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together. Python's simple, easy to learn syntax emphasizes readability and therefore reduces the cost of program maintenance. Python supports	modules and packages, which encourages program modularity and code reuse. The Python interpreter and the extensive standard library are available in source or binary form without charge for all major platforms, and can be freely distributed.\\
+\\Python features a dynamic type system and automatic memory management. It supports multiple programming paradigms, including object-oriented, imperative, functional and procedural, and has a large and comprehensive standard library.\\
+\\Python interpreters are available for many operating systems. CPython, the reference implementation of Python, is open source software and has a community-based development model, as do nearly all of its variant implementations. Python is managed by the non-profit Python Software Foundation.
+\\Python very closely resembles the English language, using words like `not' and `in' to make it to where you can very often read a program, or script, aloud to someone else and not feel like	you're speaking some arcane language. This is also helped by Python's very strict punctuation	rules which means you don't have curly braces ( ) all over your code.\\
+\\Also, Python has a set of rules, known as PEP 8, that tell every Python developer how to format their code. This means you always know where to put new lines and, more importantly, that pretty much every other Python script you pick up, whether it was written by a novice or a seasoned professional, will look very similar and be just as easy to read. The fact that a Python code, with five or so years of experience, looks very similar to the code that Guido van Rossum (the creator of Python) writes is such an ego boost.\\
+
+\subsection{Numpy}
+\justify
+NumPy is the fundamental package for scientific computing with Python. It contains among other things:
+\begin{itemize}
+\item a powerful N-dimensional array object
+\item sophisticated (broadcasting) functions
+\item tools for integrating C/C++ and Fortran code
+\item useful linear algebra, Fourier transform, and random number capabilities
+\end{itemize}
+Besides its obvious scientific uses, NumPy can also be used as an efficient multi-dimensional container of generic data. Arbitrary data-types can be defined. This allows NumPy to seamlessly and speedily integrate with a wide variety of databases.
+
+
+\section{System Implementation Results}
+\justify
+A Set of sample images captured underwater was taken and it was processed to get the results.
+Gray World Algorithm for white balancing the underwater image was implemented and the red channel equalization was changed to include green channel information to get better quality of enhancement. The Result is shown in fig \ref{gw}
+\begin{figure}[H]
+\centering
+\includegraphics[width = 12cm, height = 7cm]{2.png}
+\caption[Sample Image]{Sample image of a School of Fish}
+\label{Sample}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width = 12cm, height = 7cm]{GW.jpg}
+\caption[Gray world]{Gray World Algorithm with custom red channel equalisation}
+\label{gw} 
+\end{figure}
+This result was enhanced using Gamma Correction as shown in fig \ref{gc}. The value of gamma was taken as normal for the test purpose. For deployment, it has to be manually adjusted once according to the real input taken from the Image Aquisition device.
+\begin{figure}[H]
+\centering
+\includegraphics[width = 12cm, height = 7cm]{gc.png}
+\caption[Gamma Correction]{Gamma Corrected Image was formed from the Figure \ref{gw}}
+\label{gc}
+\end{figure}
+The white balanced image was sharpened using Unsharp masking filter. The Gaussian Blur was taken and it was subtracted from the previous image to obtain the Sharpened image. The result is shown in Figure \ref{um}.
+\begin{figure}[H]
+\centering
+\includegraphics[width = 12cm, height = 7cm]{um.png}
+\caption[Unsharp MAsking]{Unsharp Masking was done to Figure \ref{gw}}
+\label{um}
+\end{figure}
+
+
+
+
+\chapter{SONAR Data Collection}
+\subsection{Sound Navigation And Ranging}
+
+\\SONAR (originally an acronym for Sound Navigation And Ranging ) is a technique that uses sound propagation (usually underwater, as in submarine navigation) to navigate, communicate with or detect objects on or under the surface of the water, such as other vessels. Two types of technology share the name "SONAR": passive sonar is essentially listening for the sound made by vessels; active sonar is emitting pulses of sounds and listening for echoes. Sonar may be used as a means of acoustic location and of measurement of the echo characteristics of "targets" in the water. Acoustic location in air was used before the introduction of radar. Sonar may also be used in air for robot navigation, and SODAR (an upward-looking in-air sonar) is used for atmospheric investigations. The term sonar is also used for the equipment used to generate and receive the sound. The acoustic frequencies used in sonar systems vary from very low (infrasonic) to extremely high (ultrasonic).\\
+
+\subsection{BlueView Technologies}
+
+BlueView Technologies, Inc is an American electrical equipment company based in Seattle, Washington.That designs, develops and sells advanced Sonar Systems that can be currently deployed on AUV's, ROV's, surface vessels, fixed positions, and portable platforms. The company provides products for the Navy, Coast Guard, and port authorities, among other law-enforcing marine centric organisations, the necessary facilities to see underwater.
+
+Teledyne BlueView is a worldwide leader in 2D imaging and 3D scanning sonar technology. The company’s advanced sonar systems are currently deployed on AUVs, ROVs, surface vessels, fixed positions, portable platforms, and have been adopted by leading manufacturers and service providers to support mission-critical operations,which will be used in this application.
+
+
+
+\subsection{Data Collection}
+\\The sonar used for collecting the data throughout this paper is P450E imaging sonar from BlueView Technologies. This imaging sonar has multi-beam sensors. The sonar allows these sensors to work well from both stationary and moving platforms. It can produce several high quality images per second and it is possible for an AUV to acquire a real-time
+update of the perceived environment. This will facilitate the AUV to have a better understanding of the scene and the capability to handle changing environments.\\
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=10cm]{sonarim.png}
+\caption[Multi beam SONAR setup]{Multibeam SONAR setup}
+\label{Multi beam SONAR setup}
+\end{figure}
+
+
+\\The model has following characteristics:
+\begin{itemize}
+    \item  field of View: 45x 15°
+    \item Max Range: 450 ft
+\item Beam Width: 1x 15
+\item Number of Beams: 256
+\item Beam Spacing: 0.18°
+\item Range Resolution: 2 in
+\item Update Rate: Up to 10 Hz
+\item Frequency: 450 kHz
+
+\end{itemize}\\
+
+\\After connecting we can get the sonar images in our
+computer. The colors used in displaying the sonar images are referred to as the colormap. These images
+can be used in different conditions.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=10cm]{clrmap.png}
+\caption[SONAR images]{SONAR images}
+\label{SONAR images}
+\end{figure}
+
+Sonar has long been used for detecting objects on the ocean
+bottom. When the acoustic signals encounter an object, part
+of the energy will be reflected back and will be detected by
+the sensor and part of the energy will be diffracted and kept
+propagating. Echo strength is determined not only by the
+acoustic signal travelled distance, but also by the material,
+shape, size of the object. A sonar image is comprised of a
+matrix of pixels having a grey level typically on a scale from
+0 to 255. The grey levels of pixels belonging to the object are substantially different from the grey levels of the pixels
+belonging to the background.\\
+
+
+
+
+
+
+
+ \chapter{Design Analysis} 
+\section{Denoising stage}
+\justify
+The most important stage in pre-processing of an image is the denoising stage. The image obtained from sonar is considered to have the folowing noises.
+\begin{itemize}
+    \item Salt and pepper noise: It is also known as impulse noise. This noise can be caused by sharp and sudden disturbances in the image signal. It presents itself as sparsely occurring white and black pixels.
+    \item Speckle noise: It is known as granular noise. It is the noise that inherently exists in and degrades the quality of images with its multiplicative nature. It is primarily due to the interference of the returning wave at the transducer aperture.
+    \item Gaussian noise: It is a statistical noise having a probability density function (PDF) equal to that of the normal distribution, which is also known as the Gaussian distribution.
+    \begin{equation}
+        PDF(x) = {\frac{1}{{\sigma}{\sqrt{2\pi}}}}e^{\frac{(x-\mu)^2}{2\sigma^2}}
+    \end{equation}
+\end{itemize}
+\par 
+\justify 
+There are many techniques that can be used for removing the above mentioned noise. They are:-
+\begin{itemize}
+    \item Wavelet Transform
+    \item Weiner filtering
+    \item Smoothing filters
+\end{itemize}
+Considering these techniques, median filter which is one among the smoothing filter is preferred due to the reasons given below:-
+\begin{enumerate}
+    \item Denoising is done as a preprocessing stage of the image to get better output image and it is a very basic step in the image enhancement methods. Median filter could reduce the noise effects as well preserve edges better than other filters.
+    \item  Wavelet transformation is a complex first step for the algorithm resulting in more processing time. We need to process a number of frames so the time has to maintained as minimum as possible. 
+    \item Weiner filter couldn’t remove salt and pepper noise effectively and has lesser PSNR value compared to median filter. Hence based on visual interception and the PSNR values, median filter is selected. 
+\end{enumerate}
+A comparative analysis is done taking into consideration the effects of noises individually as well as together from the output images of various filters along with the PSNR value as a proof so as to choose median filter for denoising. Images show input noisy image on left hand side and output image from corresponding filter on right hand side.
+The following filters where tested with a noisy image. They are:-
+\begin{itemize}
+    \item Weiner filter
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm,height=5cm]{weinergaus.jpg}
+    \caption{Weiner filter for Gaussian noise}
+    \label{Weiner filter for Guassian noise}
+\end{figure}
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm,height=5cm]{weinersp.png}
+    \caption{Weiner filter for Salt and Pepper noise}
+    \label{Weiner filter for Salt and Pepper noise}
+\end{figure}
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm,height=5cm]{weinerspec.png}
+    \caption{Weiner filter for Speckle noise}
+    \label{Weiner filter for Speckle noise}
+\end{figure}
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm,height=5cm]{weinertotal.jpg}
+    \caption{Weiner filter for all noise together}
+    \label{Weiner filter for all noise together}
+\end{figure}
+    \item Gaussian filter
+    \item Median filter
+            \begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm,height=5cm]{medgaus.png}
+    \caption{Median filter for Gaussian noise}
+    \label{Median filter for Guassian noise}
+\end{figure}
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm,height=5cm]{medsp.png}
+    \caption{Median filter for Salt and Pepper noise}
+    \label{Median filter for Salt and Pepper noise}
+\end{figure}
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm,height=5cm]{medspec.png}
+    \caption{Median filter for Speckle noise}
+    \label{Median filter for Speckle noise}
+\end{figure}
+        \begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm,height=5cm]{medtotal.jpg}
+    \caption{Median filter for all noise together}
+    \label{Median filter for all noise together}
+\end{figure}
+\end{itemize}
+
+ 
+\section{Gray level transformation stage}
+\justify 
+There are basically three common gray level transformations.  They are 
+\begin{enumerate}
+    \item Linear transformation:  Linear transformation includes simple identity and negative transformation. Identity transformation is where each value of the input image is directly mapped to each other value of output image. That results in the same input image and output image whereas negative transformation is invert of identity transformation. In negative transformation, each value of the input image is subtracted from the L-1 and mapped onto the output image.
+    \item Logarithmic transformation: Logarithmic transformation further contains two type of transformation. Log transformation and inverse log transformation.
+    \begin{equation}
+        s = c\log{(r+1)}
+    \end{equation}
+    Where s and r are the pixel values of the output and the input image and c is a constant. The value 1 is added to each of the pixel value of the input image because if there is a pixel intensity of 0 in the image, then log (0) is equal to infinity. So 1 is added, to make the minimum value at least 1.
+    \item power transformation: Power law transformations include nth power and nth root transformation.Power Law is discussed in detail in further chapter. Also known as gamma correction.
+\end{enumerate}
+\begin{figure}[H]
+\centering
+\includegraphics[width=7cm,height=5cm]{graylevel1.jpg}
+\caption{Gray level transformations}
+\label{Gray level transformations}
+\end{figure}
+Among these gray level transformations, linear doesn’t bring out much desirable changes neither do logarithmic. So usually the gamma correction is taken to do transformations. It is mainly done to adjust the contrast and make the objects clear and precise.
+\par 
+\justify 
+An adaptive gamma correction is opted rather than the normal gamma correction method where the gamma values are usually entered manually. The input images are analyzed for different gamma values through experiment and the best value is found, is due to the reasons given below. 
+\begin{itemize}
+    \item This is more of trial and error method. Our aim is to implement SONAR and its processing in an unmanned device hence there isn’t a provision for manually entering a value.
+    \item Even if we fix a value on repetitive experimenting, when the environment in which images are taken by SONAR varies slightly the gamma value becomes irrelevant or not as efficient.
+\end{itemize}
+Thus using adaptive power transform makes it easier to be adopted by AUV technologies. Adaptive power law is based on fixing the gamma value based on the level used for thresholding the image. Segmentation is one of the important step so we took that criteria to make gamma adaptive. The level values were analyzed on many images and particular desirable range was found out for it. The gamma is allowed to enter a loop with a value incrementing itself by 0.1 until the required range is obtained.
+\par 
+\justify
+Another method to adjust contrast which comes under gray level transformation is the technique of \textbf{contrast stretching}. It is also called Normalization which attempts to improve an image by stretching the range of intensity values it contains to make full use of possible values. Contrast stretching is restricted to a linear mapping of input to output values. The result is less dramatic, but tends to avoid the sometimes artificial appearance of equalized images. The equation is as below:-
+\begin{equation}
+    s = (r-c) \frac{b-a}{d-c}+a
+\end{equation}
+The lower and upper limits are a and b, respectively (for standard 8-bit grayscale pictures, these limits are usually 0 and 255). Next, the histogram of the original image is examined to determine the value limits (lower = c, upper = d) in the unmodified picture. The restricted range can be stretched linearly, with original values which lie outside the range being set to the appropriate limit of the extended output range. Then for each pixel, the original value r is mapped to output value s using the function.
+   \begin{figure}[H]
+\centering
+\includegraphics[width=10cm,height=5cm]{9gIw6.png}
+\caption{Contrast stretching}
+\label{Contrast stretching}
+\end{figure}
+\par 
+\justify 
+Now why gamma correction is selected over contrast stretching is because the algorithm of contrast stretching fails on some cases. Those cases include images with when there is pixel intensity 0 and 255 are present in the image because when pixel intensities 0 and 255 are present in an image, then in that case they become the minimum and maximum pixel intensity which ruins the formula. That means the output image is equal to the processed image and there is no effect of contrast stretching done at this image.
+\section{segmentation stage}
+\justify
+As we know the methods for segmentation include:-
+\begin{enumerate}
+    \item Region Growing: It is conceptually a very simple method of segmenting an image which easily groups together regions of pixels with similar characteristics. The procedure is started by selecting a seed point, from where a region of similar pixels are grown by adding connected pixels.
+    \item Thresholding: Image thresholding is a simple, yet effective, way of partitioning an image into a foreground and background based on the value of threshold.
+\end{enumerate}
+\\
+The Otsu method of thresholding is used in our algorithm due to the below reasons.
+
+\begin{itemize}
+    \item The Otsu method was selected as it is an optimal thresholding technique and also provides a global threshold value.It is an adaptive thresholding technique.
+    \item The main disadvantage of basic thresholding is that for the histogram given to show the distribution of pixel values throughout the image, the objects are easily discernible through inspection, but the histogram can be misleading. It cannot be segmented by setting a simple threshold in the middle of the two peaks. This type of thresholding would add parts of the background to the object and vice-versa, as shown in the threshold images.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=10cm,height=3cm]{9.png}
+        \caption{Disadvantage of Basic Thresholding}
+        \label{Disadvantage of Basic Thresholding}
+    \end{figure}
+    \item The complication in region growing is the selection of seed points. If no information about possible regions exists,the procedure is started at an arbitrary location and stops when all the pixels have been evaluated.
+    \item The constraints that we need to fix on the growing, or to what constitutes similar pixels may become somewhat complex.
+\end{itemize}
+\section{boundary operations}
+Now that the object and background is segmented, to localise the object we need to draw the boundary of the object thus detected.
+The techniques used to draw boundary are given below:-
+\begin{enumerate}
+    \item Moore's nearest neighbour algorithm: It has the following steps.
+    \begin{itemize}
+    \item Given a digital pattern i.e. a group of white pixels, on a background of black pixels, the task is to locate a white pixel and declare it as your "start" pixel.
+    \item We'll start from the bottom left corner of the grid, scanning each column of pixels from the bottom going upwards (starting from the leftmost column and proceeding to the right) until we encounter a white pixel.
+   \item We'll declare that pixel as "start" pixel. Without loss of generality, we will extract the contour by going around the pattern in a clockwise direction.
+   \item Every time you hit a white pixel P, go back to the black pixel you were previously standing on, and then go around pixel P in a clockwise direction, visiting each pixel in its Moore neighbor, until you hit a white pixel.
+   \item The algorithm terminates when the start pixel is visited for a second time.
+   \end{itemize}
+\begin{figure}[H]
+\centering
+\includegraphics[width=15cm,height=5cm]{moore.png}
+\caption{Moore's Neighbour Algorithm}
+\label{Moore's Neighbour Algorithm}
+\end{figure}
+   
+    \item boundary functions: It included functions which can draw seperate boundaries for holes in the object region. Also when more than one object is present e can use these functions to draw boundary of desired object by just adding certain conditions.
+    \begin{figure}[H]
+\centering
+\includegraphics[width=10cm,height=5cm]{DisplayObjectBoundariesInRedAndHoleBoundariesInGreenExample_01.png}
+\caption{Boundary function}
+\label{Boundary functiom}
+\end{figure}
+    \item perimeter function: It uses the estimation of perimeter to find the boundary of the objects in the image.
+\end{enumerate}
+The reasons why perimeter function was selected is given below:-
+\begin{itemize}
+    \item The main weakness of Moore-Neighbor algorithm lies in
+the choice of the stopping criterion, it fails to extract the
+contour of a large family of patterns which frequently occur
+in real life applications.
+\item Boundary functions produces more complex boundaries compared to perimeter functions. Our aim is to calculate centroid and move onto tracking. So it becomes easy to use perimeter functions.
+\end{itemize}
+  
+
+\chapter{Object Detection}
+\fancyhf{}
+\fancyhead[r]{%
+   % We want italics
+   \itshape
+   % The chapter number only if it's greater than 0
+\footnotesize{\chaptermark}
+   % The chapter title
+   \leftmark}
+
+\fancyfoot[LE,LO]{\footnotesize{Govt. Model Engineering College}}
+\fancyfoot[RE,RO]{\footnotesize\thepage}
+ \section{Median Filter}
+ \justify
+The Median Filter is a non-linear digital filtering technique, often used to remove noise from an image or signal. Such noise reduction is a typical pre-processing step to improve the results of later processing.
+\subsection{Algorithm Description}
+The median filter is to run through the signal entry by entry, replacing each entry with the median of neighboring entries. The pattern of neighbors is called the "window", which slides, entry by entry, over the entire signal. For 1D signals, the most obvious window is just the first few preceding and following entries, whereas for 2D (or higher-dimensional) signals such as images, more complex window patterns are possible ("box" or "cross" patterns). These windows are also called maps in 2D domain.
+\subsection{How it works?}
+The median is the value separating the higher half from the lower half of a data sample. So for a chosen window size it finds the value of all the pixels within its window and arrange them in ascending order of pixel value. If the no: of entries is odd the middle value in the ascending order gives the median value. We usually choose 3x3 or 5x5 or maps with such order so that we get odd no of pixels and it’s easy to find the median value. This median value is found and substituted in the center pixel of the map.
+\par 
+\justify
+Consider the 3x3 map.Let our image have the following pixel values for 3x3 frame selected in this spatial resolution.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=3.5cm,height=3.5cm]{4.png}
+    \caption{3x3 Map}
+    \label{3x3 Map}
+\end{figure}
+\justify 
+Now the median value will be 36. Then the output of a median filter will be as below.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=3.5cm,height=3.5cm]{3.png}
+    \caption{Median}
+    \label{Median}
+\end{figure}
+\subsection{Why is it done?} 
+Median filtering is one kind of smoothing technique, as is linear Gaussian filtering. All smoothing techniques are effective at removing noise in smooth patches or smooth regions of a signal, but adversely affect edges. Often though, at the same time as reducing the noise in a signal, it is important to preserve the edges. Edges are of critical importance to the visual appearance of images, for example. For small to moderate levels of Gaussian noise, the median filter is demonstrably better than Gaussian blur at removing noise whilst preserving edges for a given, fixed window size. However, its performance is not that much better than Gaussian blur for high levels of noise, whereas, for speckle noise and salt-and-pepper noise (impulsive noise), it is particularly effective. 
+\section{Gamma Correction}
+Gray level transformation of an image means changing an image f into image g using T, where T is the transformation. The values of pixels in images f and g are denoted by r and s, respectively. As said, the pixel values r and s are related by the expression,
+\begin{equation}
+  s = T(r)  
+\end{equation}
+ Where T is a transformation that maps a pixel value r into a pixel value s. The results of this transformation are mapped into the gray scale range as we are dealing here with gray scale digital images.\\ 
+One of the main gray level transformations done to an image is the power law transformations. It is also known as gamma transform or gamma correction. This transforms the intensities of input images based on a power value which is known as the gamma value. Power law transformation can be made partially adaptive so that we don’t have to find the required gamma value practically through experiments all the time.  
+\subsection{Algorithm description} 
+The power law is given by the following equation.
+\begin{equation}
+    y = cx^{\gamma}
+\end{equation}
+\justify
+where the constants is denoted as c and $\gamma$, x is the intensity of the original image and y representing transformed images intensity with the intensity profile 0 through 255. Usually the value of c is considered to be 1.
+\par
+\justify
+For adaptive gamma correction the steps are as follows. 
+\begin{enumerate}
+    \item The segmentation level is decided on analysis of various images and is set to between a ranges.
+    \item The gamma value is initially set to 0.1.
+    \item The gamma value is increased by incrementing with 0.1 till it reaches the value of 2.4.
+    \item The gamma value for level is between the prescribed ranges is taken for the transformation.
+\end{enumerate}
+\justify 
+Thus using the above algorithm we can adjust the gamma value automatically to get the best visually appealing output image.
+
+\subsection{How is it done?} 
+The human perception of brightness, under common illumination conditions (not pitch black nor blindingly bright), follows an approximate power function. So when the input image’s pixel value that is intensity is raised to a power the objects in the image become distinct. The real process is that each intensity value of the pixel is taken and is raised to the specified gamma value to get new intensity value which becomes our output image when put all pixels together as in its equation.
+\par 
+\justify 
+The input output characteristics based on intensity levels is shown in figure.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=5cm,height=5cm]{10.png}
+    \caption{Input Output Characteristics}
+    \label{Input Output Characteristics}
+\end{figure}
+
+\subsection{Why transformation is done?} 
+When the gray level of objects is closed to the gray level of background or the proportion of objects is low it becomes difficult to segment the image. To solve this problem, the gray level of objects should be increased and the gray level of background should be decreased for enhancing the contrast and highlighting before segmenting an image. By using power law, the gray level of each pixel can be easily changed in the image. Thus power law is mainly focused to enhance the luminance of our image. This makes our image a better input for segmentation and object detection. Also it increases the quality of perception. 
+
+\section{Thresholding}
+ \justify
+ The process of partitioning an image into small segments called image segmentation. It helps us for analysis and interpretation. A common way to discern objects from background information is the difference in their intensity or amplitude range. A threshold value is then set to separate the background and object information.
+\par
+\justify
+Thresholding are of two types
+\begin{enumerate}
+    \item Basic thresholding: The simplest form of thresholding is to divide the image histogram using a single global threshold, T. Where the histogram is easily separable, this type of global threshold is more than adequate. The easiest way to determine the threshold is through inspection of the histogram. Although this is rarely the optimal threshold, it can be an adequate solution, especially where the input images vary very little.
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm,height=3cm]{5.png}
+    \caption{Basic Thresholding}
+    \label{Basic Thresholding}
+\end{figure}
+    \item Optimal thresholding: A threshold can be considered optimal when it is estimated in such a way that it produces a minimum average segmentation error. When using this type of method, it is assumed that the image contains two intensity regions or modes. Each mode can be considered as a random quantity and their histogram is used as an estimate of their probability density function (PDF).
+      \begin{figure}[H]
+    \centering
+    \includegraphics[width=7cm,height=4cm]{6.png}
+    \caption{Optimal Thresholding}
+    \label{Optimal Thresholding}
+\end{figure}
+\end{enumerate}
+ 
+\subsection{Algorithm description} 
+The threshold value of any gray scale image is usually found by the graythresh() function in Matlab. The value thus obtained is taken for segmentation. Also we use the Otsu adaptive thresholding mechanism. It is used to automatically perform clustering-based image thresholding or, the reduction of a gray level image to a binary image. It is an optimal thresholding technique.\\ 
+The algorithm assumes that the image contains two classes of pixels following bi-modal histogram (foreground pixels and background pixels), it then calculates the optimum threshold separating the two classes so that their combined spread (intra-class variance) is minimal, or equivalently, so that their inter-class variance is maximal.
+\par
+\justify
+The algorithm follows the below steps.
+
+\begin{itemize}
+ \item Compute histogram and probabilities of each intensity level.
+ \item Set up initial probabilities and means.
+ \item Set through all possible thresholds t=1,… maximum intensity.
+ \item Update the probability and mean values accordingly.
+ \item Compute inter class variance.
+ \item Desired threshold corresponds to the maximum inter class variance.  
+\end{itemize}
+
+\subsection{How is it done? }
+The simplest thresholding methods replace each pixel in an image with a black pixel if the image intensity is less than some fixed constant T, or a white pixel if the image intensity is greater than that constant. The Otsu method is explained here. \\
+Now suppose that we dichotomize the pixels into two classes C0 and C1 (background and objects) by a threshold at level T. C0 denotes pixels with gray levels [0, 1,...T-1], and C1 denotes pixels with gray levels [T,...L-1]. The probability distributions for the two classes are
+\begin{equation}
+   w_{o} = Pr(C_{0}) = {\sum}_{i=0}^{T-1}P_{i}
+   \end{equation}
+\begin{equation}
+    w_{1} = Pr(C_{1}) = {\sum}_{i=T}^{L-1}P_{i} = 1 - w_{0}
+\end{equation}
+The means of class C0 and C1 are 
+\begin{equation}
+    u_{0} = {\sum}_{i=0}^{T-1}iP_{i}/w_{0}
+\end{equation}
+\begin{equation}
+   u_{1} = {\sum}_{i=T}^{L-1}iP_{i}/w_{1}
+\end{equation}
+
+The total mean of gray levels is denoted by  
+\begin{equation}
+ u_{T} = w_{0}u_{0} + w_{1}u_{1}   
+\end{equation}
+
+The class variances are given by 
+\begin{equation}
+    {\sigma}_{0}^2 = {\sum}_{i=0}^{T-1}(i-u_{0})^2P_{i}/w_{0}
+\end{equation}
+\begin{equation}
+    {\sigma}_{1}^2 = {\sum}_{i=T}^{L-1}(i-u_{1})^2P_{i}/w_{1}
+\end{equation}
+The intra-class variance is  
+\begin{equation}
+    {\sigma}_{W}^2 = w_{0}{\sigma}_{0}^2 + w_{1}{\sigma}_{1}^2
+\end{equation}
+The inter-class variance is  
+\begin{equation}
+    {\sigma}_{T}^2 = {\sigma}_{W}^2 + {\sigma}_{B}^2 
+\end{equation}
+Otsu method chooses the optimal threshold T by maximizing the inter-class variance, which is equivalent to minimizing the intra-class variance, since the total variance (the sum of the withinclass variance and the between-class variance) is constant for different partitions. Thus the value of T is calculated as below.
+\begin{equation}
+    T = arg[{\max}_{0{\leq}T{\leq}L-1} ({\sigma}_{B}^2(t))] = arg[{\min}_{0{\leq}T{\leq}L-1} ({\sigma}_{W}^2(t))]
+\end{equation}
+\subsection{Why is it done?} 
+It is mainly done to separate our object from the background information and specifically the object in the image. It also separate the dark and bright side of the image. By thresholding we can produce binary images of any format. Hence by doing so we can get the object information clearly. 
+
+
+\chapter{Object Localisaion}
+\fancyhf{}
+\fancyhead[r]{%
+   % We want italics
+   \itshape
+   % The chapter number only if it's greater than 0
+\footnotesize{\chaptermark}
+   % The chapter title
+   \leftmark}
+
+\fancyfoot[LE,LO]{\footnotesize{Govt. Model Engineering College}}
+\fancyfoot[RE,RO]{\footnotesize\thepage}
+
+\justify
+
+\section{Boundary formation}
+Boundary or contour of an image is at which a significant change occurs in some physical aspect of an image, such as the surface reflectance, illumination or the distances of the visible surfaces from the viewer. Changes in physical aspects manifest themselves in a variety of ways, including changes in intensity, color, and texture. There are many ways in which we can find the boundary of an object. One simple way is to find the perimeter of the object from the segmented image where the object is well distinguished from background.
+
+\subsection{Algorithm description}
+ the input of this stage is our binary image where the object is segmented from the background. The function of perimeter returns a binary image that contains only the perimeter pixels of objects in the input image. A pixel is part of the perimeter if it is nonzero and it is connected to at least one zero-valued pixel.
+ \subsection{How is it done?}
+ In the binary image the object is represented by the white pixels and background is in black pixels. the perimeter is obtained by turning the interface of adjacent white and black pixels into white. This interface hence acts as the boundary for the object in the binary image. An example is shown in figure.
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm,height=5cm]{11.png}
+    \caption{Boundary Formation}
+    \label{Boundary Formation}
+\end{figure}
+ \subsection{Why is it done?}
+ The task of object localization is to predict the object in an image as well as its boundaries. Hence boundary formation is an important part of localising an object. The difference between object localization and object detection is subtle. Simply, object localization aims to locate the main (or most visible) object in an image while object detection tries to find out all the objects.
+ Localistaion of object is used as primary step of classification of object.
+ 
+\chapter{Object Tracking}
+\section{Morphological operations}
+\section{Centroid Calculation}
+\section{Kalmann Filter}
+
+\chapter{ Object Classification}
+\section{svm classification}
+\section{challenges}
+\chapter{Implementation}
+In this chapter we will see how our algorithm is implemented.\\\
+The steps are:-
+\begin{enumerate}
+    \item The data from SONAR is processed to form a SONAR image.
+    This image can be changed into desired colormap. We choose copper here.
+    \item The image is converted to gray scale for ease in using functions and so as to convert to binary image.
+    \item The SONAR image contains noise which is removed by the Median filter.
+    \item Adaptive gamma correction is performed on the denoised image so as to prevent some previously mentioned segmentation errors.
+    \item The gamma corrected image is now set for segmentation. The Otsu method of thresholding separates the object from the background. The output is a binary image where object is represented by white pixels and background by black pixels. Object is thus detected.
+    \item The object have to be localised by drawing boundaries. There are two types of localisation done.
+    \begin{enumerate}
+        \item Perimeter is used to form boundary where there is only one object detected.
+        \item For more than one object detected, we use other boundary condition functions so as to localise and draw boundary of desired object.
+    \end{enumerate}
+    \item The centroid of the object is then calculated. For ease and accurate value of centroid we use morphological operations such as dilation and erosion and also at times clustering techniques.
+    \item Using centroid we can differentiate the the static and moving objects. For moving objects tracking is required. This is done by taking into consideration many frames of SONAR image.
+    \item For getting some SONAR image frames we process the video input from SONAR and Make it into many frames so as to track the moving object.
+    \item With change in position of the object there is change in position of centroid of the object. This can be viewed by plotting the centroid of objects in all frames.
+    \item Better tracking is done by Kalman filter which is a predictive filter.
+    \item The objects can be identified so as to what they are by the process of classification.
+\end{enumerate}
+\chapter{Conclusion}
+
+A set of processes in both optical and acoustic domain is carried out so as to enhance the image underwater.Optical image enhancement is carried out using Python while its acoustic counterpart is done using Matlab.In the optical image method we have a single image approach that does not require specialized hardware or knowledge
+about the underwater conditions or scene structure. It builds on blending of two images that are directly derived from a color compensated and white-balanced version of the original degraded image.Hence obtaining enhanced dehazed images.The problems faced during the optical domain operation resulted in a shift of domain to acoustc ,namely SONAR images.
+\par 
+\justify
+A new framework of underwater object detection and localization for underwater vehicles based on SONAR image processing techniques. In our system, real-time sonar data flow is collected by a multi-beam sonar and median filter is used to reduce noise and remove outliers.SONAR images segmentation by improved adaptive
+thresholding method is used to detect objects. A contour detection algorithm is used to find objects’ contour and calculated the position of objects.
+\par 
+\justify
+The ability of the system has been demonstrated on real
+sonar data collected by the multi-beam sonar. With this system, underwater objects can be detected simply and efficiently. Compared to other methods, this system provides reliable and accurate localization results for AUV navigation and underwater work.
+However, this system does have its limitations. It is unable to track and recognize objects. 
+\par 
+\justify
+Hence we devise an object tracking and classification mechanism using Kalman filter and SVM respectively.Hence easing the navigation of AUV underwater.A detailed stud and analysis is carried out in both domains ,all possible alternatives are tested at each stage and the best method is chosen based on both qualitative and quantitatve analysis.
+\pagebreak
+\chapter{Future Scope}
+Individually future extensions can be made in both optical and acoustic domain.
+\begin{itemize}
+    \item  In \textbf{Optical Domain}
+           { \begin{itemize}
+                \item This Single Image approach can process videos since Frame-by-Frame processing could be done.
+                
+                \item But the delay caused for the whole process makes it a bit laggy in case of real-time application like embedding in a submarine, where the video should be enhanced so as to facilitate much better Visual Perception of the surrounding area. The Program can be optimised to reduce this time delay and this can be used for real-time video enhancement.
+                
+                \item An FPGA implementation of the same can be made,this Product can be embedded in any machines or vehicles for better Perception Underwater.
+            \end{itemize}}
+            
+\item In \textbf{Acoustic Domain}
+
+{\begin{itemize}
+    \item Code optimization for real time applications can be made.
+    \item The unavailability of sufficient data base in case of SONAR images can limit the level of classification performed,but with sufficient data base AUVs which could detect and identify any underwater object with sufficient accuracy can be made.
+    \item The whole idea can be implemented as a GUI,even wthin a mobile application so that the data is mobile,portable and accessible from anywhere.
+    \item Unmanned AUVs which can navigate underwater effortlessly,function and avoid collisions in real time and gather,identify and supply accurate data can be made.
+\end{itemize}}
+\end{itemize}
+\pagebreak
+\begin{thebibliography}{11}
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibitem{1}Codruta O. Ancuti, Cosmin Ancuti, Christophe De Vleeschouwer, and Philippe Bekaert, ``Color Balance and Fusion for Underwater Image Enhancement", \textit{IEEE Transactions on Image Processing, VOL. 27, NO. 1}, Jan 2018
+
+\bibitem{UIP} R. Schettini and S. Corchs, ``Underwater image processing: state of the art of restoration and image enhancement methods” \textit{EURASIP J. Adv. Signal Process., vol. 2010}, Dec. 2010, Art. no. 746052 
+
+\bibitem{inf} G. L. Foresti, ``Visual inspection of sea bottom structures by an autonomous underwater vehicle”, \textit{IEEE Trans. Syst., Man, Cybern. B, Cybern., vol. 31, no. 5, pp. 691–705}, Oct. 2001
+https://www.overleaf.com/project/5cbf43ccb7b17b7ca3e57484
+\bibitem{2} M. D. Kocak, F. R. Dalgleish, M. F. Caimi, and Y. Y. Schechner, ``A focus on recent developments and trends in underwater imaging”, \textit{Marine Technol. Soc. J., vol. 42, no. 1, pp. 52–67}, 2008
+
+\bibitem{n8} C. Ancuti, C. O. Ancuti, C. De Vleeschouwer, and A. Bovik, ``Night-time dehazing by fusion”, \textit{in Proc. IEEE ICIP}, Sep. 2016, pp. 2256–2260
+
+\bibitem{khe} K. He, J. Sun, and X. Tang, ``Single image haze removal using dark channel prior”, \textit{IEEE Trans. Pattern Anal. Mach. Intell., vol. 33, no. 12, pp. 2341–2353}, Dec. 2011
+
+\bibitem{trans} P. Drews, Jr., E. Nascimento, F. Moraes, S. Botelho, M. Campos, and R. Grande-Brazil, ``Transmission estimation in underwater single images”, \textit{Proc. IEEE ICCV}, Dec. 2013, pp. 825–830
+
+\bibitem{ag} A. Galdran, D. Pardo, A. Picón, and A. Alvarez-Gila, ``Automatic red-channel underwater image restoration”, \textit{J. Vis. Commun. Image Represent., vol. 26, pp. 132–145}, Jan. 2015
+
+\bibitem{3l} H. Lu, Y. Li, L. Zhang, and S. Serikawa, ``Contrast enhancement for images in turbid water”, \textit{J. Opt. Soc. Amer. A, Opt. Image Sci., vol. 32, no. 5, pp. 886–893}, May 2015
+
+\bibitem{rf} R. Fattal, ``Dehazing using color-lines”, \textit{ACM Trans. Graph., vol. 34}, Nov. 2014, Art. no. 13
+\bibitem{vd} C. Ancuti, C. O. Ancuti, T. Haber, and P. Bekaert, ``Enhancing underwater images and videos by fusion”, \textit{in Proc. IEEE CVPR}, Jun. 2012,pp. 81–88
+
+\end{thebibliography}
+
+\appendix
+\appendixpage
+\addappheadtotoc
+\chapter{Coversion of Video to Frames}
+\begin{lstlisting}[language=Octave]
+clc;
+close all;
+mov = VideoReader('Diver.mp4');
+vidFrames = read(mov,1);
+lastFrame = read(mov, inf);
+numFrames = mov.NumberOfFrames;
+for i = 1:10:numFrames
+    img = read(mov,i);
+    I0 = rgb2gray(img);
+    K = medfilt2(I0);
+    L = im2double(K);
+    for gamma = 0.1:0.1:2.4
+        s = (L).^gamma;
+        level = 1 - graythresh(s);
+        if (level>0.58)&&(level<0.67)
+            break;
+        end
+    end
+    out = imbinarize(s, level);
+    B = bwperim(out,8);
+    imshow(B);
+end
+\end{lstlisting}
+
+\chapter{Centroid Estimation}
+\begin{lstlisting}[language=Octave]
+clc;
+clear;
+close all;
+% Read Image
+rgbImage = imread('2.jpg');
+% Convert to grayscale
+grayImage = rgb2gray(rgbImage);
+
+% Read matrix files
+%datastruct = load('cube3.mat');
+%fn = fieldnames(datastruct);
+%firstvar = fn{1};
+%sonarImage = datastruct.(firstvar);
+% Crop off the transmitter noise and wall for accurate centroid
+%grayImage = sonarImage(100:824,:);
+
+% Apply Median Filter
+medImage = medfilt2(grayImage);
+% Convert to double for Power Law Tranform
+medImage = im2double(medImage);
+% Perform Gamma Correction
+for gamma = 0.1:0.1:2.4
+    gammaImage = (medImage).^gamma;
+    % Find out Threshold Level
+    level = 1 - graythresh(gammaImage);
+    if (level>0.58)&&(level<0.67)
+        break;
+    end
+end
+% Convert to Binary Image
+binaryImage = imbinarize(gammaImage, level);
+se = strel('square',3);
+% Just in case there is noise, fill the blobs and extract the largest blob only.
+MOimage = imfill(binaryImage, 'holes');  % Fill holes.
+% Perform Erosion and Dilation
+MOimage1 = imopen(MOimage,se);
+MOimage2 = bwareafilt(MOimage1, 1); % Extract largest blob.
+title('Binary Image');
+axis on;
+% Display the Binary image.
+imshow(rgbImage);
+% Label the image
+[labeledImage, numBlobs] = bwlabel(MOimage2);
+% Measure Centroid
+props = regionprops(labeledImage, 'Centroid');
+xCentroid = props.Centroid(1);
+yCentroid = props.Centroid(2);
+% vertical coordinate corrected so as to compensate the shift caused by
+% cropping
+%yCentroid = props.Centroid(2)+50;
+% Put a cross on it.
+hold on;
+plot(xCentroid, yCentroid, 'c+', 'MarkerSize', 10, 'LineWidth', 2);
+\end{lstlisting}
+
+\chapter{K-Means Clustering}
+\begin{lstlisting}[language=Octave]
+clc;
+clear all;
+close all;
+% Read Image
+rgbImage = imread('E:\project\2.jpg');
+% Convert to grayscale
+grayImage = rgb2gray(rgbImage);
+% Apply Median Filter
+medImage = medfilt2(grayImage);
+% Convert to double for Power Law Tranform
+medImage = im2double(medImage);
+% Perform Gamma Correction
+for gamma = 0.1:0.1:2.4
+    gammaImage = (medImage).^gamma;
+    % Find out Threshold Level
+    level = 1 - graythresh(gammaImage);
+    if (level>0.58)&&(level<0.67)
+        break;
+    end
+end
+% Convert to Binary Image
+binaryImage = imbinarize(gammaImage, level);
+se = strel('square',3);
+Oimage = imopen(binaryImage,se);
+% Get the dimensions of the image.  numberOfColorChannels should be = 3.
+[rows, columns, numberOfColorChannels] = size(rgbImage);
+% Display the original color image.
+%figure()
+%imshow(MOimage);
+% Just in case there is noise, fill the blobs and extract the largest blob only.
+Oimage = imfill(Oimage, 'holes');  % Fill holes.
+MOimage = bwareafilt(Oimage, 1); % Extract largest blob.
+title('Binary Image');
+axis on;
+% Label the image
+[labeledImage, numBlobs] = bwlabel(MOimage);
+% Measure Centroid
+props = regionprops(labeledImage, 'Centroid');
+xCentroid = props.Centroid(1);
+yCentroid = props.Centroid(2);
+% Put a cross on it.
+%hold on;
+plot(xCentroid, yCentroid, 'r*', 'MarkerSize', 8);
+[x,y] = find(Oimage==1);
+F = [y -x];
+%% K-means
+K     = 2;                                            % Cluster Numbers
+KMI   = 40;                                           % K-means Iteration
+CENTS = [xCentroid, yCentroid; 0,0]
+DAL   = zeros(size(F,1),K+2);                         % Distances and Labels
+CV    = '+r+b+c+m+k+yorobocomokoysrsbscsmsksy';       % Color Vector
+for n = 1:KMI
+   for i = 1:size(F,1)
+      for j = 1:K  
+        DAL(i,j) = norm(F(i,:) - CENTS(j,:));      
+      end
+      [Distance CN] = min(DAL(i,1:K));                % 1:K are Distance from Cluster Centers 1:K 
+      DAL(i,K+1) = CN;                                % K+1 is Cluster Label
+      DAL(i,K+2) = Distance;                          % K+2 is Minimum Distance
+   end
+   for i = 1:K
+      A = (DAL(:,K+1) == i);                          % Cluster K Points
+      CENTS(i,:) = mean(F(A,:));                      % New Cluster Centers
+      if sum(isnan(CENTS(:))) ~= 0                    % If CENTS(i,:) Is Nan Then Replace It With Random Point
+         NC = find(isnan(CENTS(:,1)) == 1);           % Find Nan Centers
+         for Ind = 1:size(NC,1)
+         CENTS(NC(Ind),:) = F(randi(size(F,1)),:);
+         end
+      end
+   end
+   
+%% Plot   
+clf
+figure(1)
+hold on
+for i = 1:K
+PT = F(DAL(:,K+1) == i,:);                            % Find points of each cluster
+plot(PT(:,1),PT(:,2),CV(2*i-1:2*i),'LineWidth',2);    % Plot points with determined color and shape
+plot(CENTS(:,1),CENTS(:,2),'*k','LineWidth',7);       % Plot cluster centers
+end
+hold off
+grid on
+pause(0.1)
+end
+\end{lstlisting}
+
+\chapter{SVM Classifier}
+\begin{lstlisting}[language=Octave]
+flowerds = imageDatastore('E:\project\Classify\Flowers','IncludeSubfolders',true,'LabelSource','foldernames');
+[trainingSet,testSet] = splitEachLabel(flowerds,0.6);
+numClasses = numel(categories(flowerds.Labels));
+
+img = readimage(trainingSet, 206);
+
+% Extract HOG features and HOG visualization
+[hog_2x2, vis2x2] = extractHOGFeatures(img,'CellSize',[2 2]);
+[hog_4x4, vis4x4] = extractHOGFeatures(img,'CellSize',[4 4]);
+[hog_8x8, vis8x8] = extractHOGFeatures(img,'CellSize',[8 8]);
+
+cellSize = [4 4];
+hogFeatureSize = length(hog_4x4);
+
+% Loop over the trainingSet and extract HOG features from each image. A
+% similar procedure will be used to extract features from the testSet.
+
+numImages = numel(trainingSet.Files);
+trainingFeatures = zeros(numImages, hogFeatureSize, 'single');
+
+for i = 1:numImages
+    img = readimage(trainingSet, i);
+    
+    img = rgb2gray(img);
+    
+    % Apply pre-processing steps
+    img = imbinarize(img);
+    
+    trainingFeatures(i, :) = extractHOGFeatures(img, 'CellSize', cellSize);  
+end
+
+% Get labels for each image.
+trainingLabels = trainingSet.Labels;
+
+% fitcecoc uses SVM learners and a 'One-vs-One' encoding scheme.
+classifier = fitcecoc(trainingFeatures, trainingLabels);
+
+% Extract HOG features from the test set. The procedure is similar to what
+% was shown earlier and is encapsulated as a helper function for brevity.
+[testFeatures, testLabels] = helperExtractHOGFeaturesFromImageSet(testSet, hogFeatureSize, cellSize);
+
+% Make class predictions using the test features.
+predictedLabels = predict(classifier, testFeatures);
+
+% Tabulate the results using a confusion matrix.
+confMat = confusionmat(testLabels, predictedLabels);
+
+helperDisplayConfusionMatrix(confMat)
+
+function helperDisplayConfusionMatrix(confMat)
+% Display the confusion matrix in a formatted table.
+
+% Convert confusion matrix into percentage form
+confMat = bsxfun(@rdivide,confMat,sum(confMat,2));
+
+digits = '0':'9';
+colHeadings = arrayfun(@(x)sprintf('%d',x),0:9,'UniformOutput',false);
+format = repmat('%-9s',1,11);
+header = sprintf(format,'digit  |',colHeadings{:});
+fprintf('\n%s\n%s\n',header,repmat('-',size(header)));
+for idx = 1:numel(digits)
+    fprintf('%-9s',   [digits(idx) '      |']);
+    fprintf('%-9.2f', confMat(idx,:));
+    fprintf('\n')
+end
+end
+
+function [features, setLabels] = helperExtractHOGFeaturesFromImageSet(imds, hogFeatureSize, cellSize)
+% Extract HOG features from an imageDatastore.
+
+setLabels = imds.Labels;
+numImages = numel(imds.Files);
+features  = zeros(numImages, hogFeatureSize, 'single');
+
+% Process each image and extract features
+for j = 1:numImages
+    img = readimage(imds, j);
+    img = rgb2gray(img);
+    
+    % Apply pre-processing steps
+    img = imbinarize(img);
+    
+    features(j, :) = extractHOGFeatures(img,'CellSize',cellSize);
+end
+end
+\end{lstlisting}
+
+\chapter{Gray World Algorithm}
+\begin{lstlisting}[language=Python]
+import cv2
+import numpy as np
+
+img = cv2.imread('1.png', 1)		# Input Image
+img = cv2.resize(img, (750,500))	# Used Because we take input from a single cam. So resolution will be constant
+b = g = r = 0.0
+b,g,r = cv2.split(img)				# Splitting R G B channels
+cv2.imshow("In", img)				# Show the input image
+rsum = gsum = bsum = 0.0
+for i in range(750):
+    for j in range(500):
+        rsum = rsum + r[j,i]		# Find Sum of pixel values of red channel
+for i in range(750):
+    for j in range(500):
+        gsum = gsum + g[j,i]		# Find Sum of pixel values of green channel
+for i in range(750):
+    for j in range(500):
+        bsum = bsum + b[j,i]		# Find Sum of pixel values of blue channel
+rillum = gillum = billum = 0.0
+rillum = rsum/(750*500)				#
+gillum = gsum/(750*500)				# Finding the mean of each channel
+billum = bsum/(750*500)				#
+scale = 0.0
+scale = (rillum + gillum + billum)/3 # Overall mean of the Image
+factr = factg = factb = 0.0
+factr = scale/rillum				#
+factg = scale/gillum				# Multiplication factor for each channel
+factb = scale/billum				#
+rinv = 0.0
+rinv = 255 - r
+gfctr = (gillum - rillum)/256
+gcorr = rinv * g
+r = cv2.addWeighted(r,factr,g,0,0)	#
+# for i in range(500):
+#     for j in range(750):
+#         if((r[i][j] + ((gillum - rillum)/256)*((255 - r[i][j])/256)*g[i][j]%255)>0):
+#         	r[i][j] = 255;
+#         else:
+#         	r[i][j] = r[i][j] + ((gillum - rillum)/256)*((255 - r[i][j])/256)*g[i][j]
+g = cv2.addWeighted(g,factg,g,0,0)	# Weighted addition used for saturation scaling of channels
+b = cv2.addWeighted(b,factb,g,0,0)	#
+print(rinv)
+gwimg = cv2.merge([b, g, r]) 					# Merge the Three channels back to the single image
+cv2.imshow("Out", gwimg)
+cv2.imwrite("out.jpg", gwimg)					# Save output
+cv2.waitKey(0) # Wait Indefinitely
+\end{lstlisting}
+
+\chapter{Gamma Correction}
+\begin{lstlisting}[language=Python]
+import cv2
+import numpy as np
+
+def adjust_gamma(image, gamma=1.5):
+	# build a lookup table mapping the pixel values [0, 255] to
+	# their adjusted gamma values
+	invGamma = 1.0 / gamma
+	table = np.array([((i / 255.0) ** invGamma) * 255
+		for i in np.arange(0, 256)]).astype("uint8")
+
+	# apply gamma correction using the lookup table
+	return cv2.LUT(image, table)
+
+# load the original image
+original = cv2.imread('out.jpg',1)
+
+# loop over various values of gamma
+for gamma in np.arange(0.0, 3.5, 0.5):
+	# ignore when gamma is 1 (there will be no change to the image)
+	if gamma == 1:
+		continue
+
+	# apply gamma correction and show the images
+	gamma = gamma if gamma > 0 else 0.1
+	adjusted = adjust_gamma(original, gamma=gamma)
+	cv2.putText(adjusted, "g={}".format(gamma), (10, 30),
+	cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 3)
+	cv2.imshow("Images", np.hstack([original, adjusted]))
+cv2.waitKey(0)
+\end{lstlisting}
+
+\chapter{Unsharp Masking}
+\begin{lstlisting}[language=Python]
+import cv2
+import numpy as np
+img = cv2.imread('out.jpg', 1)
+gn = cv2.GaussianBlur(img, (5,5), 0)
+uimg = cv2.addWeighted(img, 1.5, gn, -0.5, 0)
+cv2.imshow("Images", np.hstack([img, uimg]))
+cv2.waitKey(0)
+\end{lstlisting}
+
+
+\end{document}
